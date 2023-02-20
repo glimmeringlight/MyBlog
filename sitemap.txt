@@ -4,6 +4,8 @@ https://blog.felixchen0707.cn/more/
 https://blog.felixchen0707.cn/link/rss/
 https://blog.felixchen0707.cn/wiki/notes/
 https://blog.felixchen0707.cn/wiki/notes/computer-organization-and-architecture/
+https://blog.felixchen0707.cn/posts/e6a333a3/
+https://blog.felixchen0707.cn/posts/8a8bfa9b/
 https://blog.felixchen0707.cn/posts/36ee0b0c/
 https://blog.felixchen0707.cn/posts/477696ac/
 https://blog.felixchen0707.cn/posts/dfa590a7/
@@ -34,6 +36,8 @@ https://blog.felixchen0707.cn/tags/python/
 https://blog.felixchen0707.cn/tags/websocket/
 https://blog.felixchen0707.cn/tags/css/
 https://blog.felixchen0707.cn/tags/%E5%8D%9A%E5%AE%A2/
+https://blog.felixchen0707.cn/tags/%E6%95%B0%E5%AD%A6/
+https://blog.felixchen0707.cn/tags/%E4%BF%A1%E6%81%AF%E5%AD%A6/
 https://blog.felixchen0707.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
 https://blog.felixchen0707.cn/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/
 https://blog.felixchen0707.cn/categories/%E6%B8%B8%E6%88%8F/

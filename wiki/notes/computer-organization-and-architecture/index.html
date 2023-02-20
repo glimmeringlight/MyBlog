@@ -23,17 +23,17 @@
   <title>Notes：概述 - Felix Chen</title>
 
   
-    <meta name="description" content="计算机的基本组成 Von Neumann structure 早期的冯诺依曼体系结构以运算器为核心，数据的处理、输入输出和存储都要经过运算器，导致计算机的输入、输出、运算操作只能串行执行。 改良后的计算机结构选取存储器为中心结构，使得运算器可以将绝大多数的时间全部投入数据的运算和处理之中。如下图所示：  计算机的执行过程 寄存器一般而言分为两类：通用寄存器和专用寄存器。通用寄存器，一般用于保存程序">
+    <meta name="description" content="计算机的基本组成 Von Neumann structure 早期的冯诺依曼体系结构以运算器为核心，数据的处理、输入输出和存储都要经过运算器，导致计算机的输入、输出、运算操作只能串行执行。 改良后的计算机结构选取存储器为中心结构，使得运算器可以将绝大多数的时间全部投入数据的运算和处理之中。如下图所示：   计算机的执行过程 寄存器一般而言分为两类：通用寄存器和专用寄存器。通用寄存器，一般用于保存">
 <meta property="og:type" content="website">
 <meta property="og:title" content="概述">
 <meta property="og:url" content="https://blog.felixchen0707.cn/wiki/notes/computer-organization-and-architecture/">
 <meta property="og:site_name" content="Felix Chen">
-<meta property="og:description" content="计算机的基本组成 Von Neumann structure 早期的冯诺依曼体系结构以运算器为核心，数据的处理、输入输出和存储都要经过运算器，导致计算机的输入、输出、运算操作只能串行执行。 改良后的计算机结构选取存储器为中心结构，使得运算器可以将绝大多数的时间全部投入数据的运算和处理之中。如下图所示：  计算机的执行过程 寄存器一般而言分为两类：通用寄存器和专用寄存器。通用寄存器，一般用于保存程序">
+<meta property="og:description" content="计算机的基本组成 Von Neumann structure 早期的冯诺依曼体系结构以运算器为核心，数据的处理、输入输出和存储都要经过运算器，导致计算机的输入、输出、运算操作只能串行执行。 改良后的计算机结构选取存储器为中心结构，使得运算器可以将绝大多数的时间全部投入数据的运算和处理之中。如下图所示：   计算机的执行过程 寄存器一般而言分为两类：通用寄存器和专用寄存器。通用寄存器，一般用于保存">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.felixchen0707.cn/assets/wiki/notes/von-neumann-structure.jpg">
 <meta property="og:image" content="https://blog.felixchen0707.cn/assets/wiki/notes/memory-centered-structure.jpg">
-<meta property="article:published_time" content="2022-12-25T05:57:14.626Z">
-<meta property="article:modified_time" content="2022-12-25T05:57:14.626Z">
+<meta property="article:published_time" content="2023-02-20T15:35:37.030Z">
+<meta property="article:modified_time" content="2023-02-20T15:35:37.030Z">
 <meta property="article:author" content="Felix Chen">
 <meta property="article:tag" content="Felix Chen">
 <meta name="twitter:card" content="summary">
@@ -59,6 +59,10 @@
 
   
 
+  
+    <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+    <script defer src="https://gcore.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+    <script defer src="https://gcore.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"onload="renderMathInElement(document.body);"></script>
   
 
 
@@ -92,7 +96,7 @@
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/wiki/notes/" placeholder="在 /wiki/notes/ 中搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
 
-<widget class="widget-wrapper toc multi" id="data-toc"><div class="widget-header cap dis-select"><span class="name">了解此页</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/notes/#start"><span class="toc-text">开始翻阅笔记</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机组成与系统结构</span></div><div class="widget-body fs14"><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/notes/computer-organization-and-architecture/"><span class="toc-text">概述</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="toc-text">计算机的基本组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text">计算机的执行过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%AD%97%E9%95%BF%E5%AD%98%E5%82%A8%E5%AD%97%E9%95%BF%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%97%E9%95%BF"><span class="toc-text">指令字长、存储字长和机器字长</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">计算机的性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4%E5%B8%B8%E7%94%A8cpu%E6%97%B6%E9%97%B4%E6%9D%A5%E6%8F%8F%E8%BF%B0"><span class="toc-text">执行时间常用CPU时间来描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E7%8E%87%E5%B8%B8%E7%94%A8mips%E5%92%8Cflops%E6%8F%8F%E8%BF%B0"><span class="toc-text">吞吐率常用MIPS和FLOPS描述</span></a></li></ol></li></ol></div></div></widget>
+<widget class="widget-wrapper toc multi" id="data-toc"><div class="widget-header cap dis-select"><span class="name">了解此页</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/notes/#start"><span class="toc-text">开始翻阅笔记</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机组成与系统结构</span></div><div class="widget-body fs14"><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/notes/computer-organization-and-architecture/"><span class="toc-text">概述</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="toc-text"> 计算机的基本组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text"> 计算机的执行过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%AD%97%E9%95%BF-%E5%AD%98%E5%82%A8%E5%AD%97%E9%95%BF%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%97%E9%95%BF"><span class="toc-text"> 指令字长、存储字长和机器字长</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text"> 计算机的性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4%E5%B8%B8%E7%94%A8cpu%E6%97%B6%E9%97%B4%E6%9D%A5%E6%8F%8F%E8%BF%B0"><span class="toc-text"> 执行时间常用CPU时间来描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E7%8E%87%E5%B8%B8%E7%94%A8mips%E5%92%8Cflops%E6%8F%8F%E8%BF%B0"><span class="toc-text"> 吞吐率常用MIPS和FLOPS描述</span></a></li></ol></li></ol></div></div></widget>
 </div>
 
 
@@ -104,36 +108,30 @@
 
   
   
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">项目</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/notes/">Notes</a></div><div id="post-meta">更新于&nbsp;<time datetime="2022-12-25T05:57:14.626Z">2022-12-25</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">项目</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/notes/">Notes</a></div><div id="post-meta">更新于&nbsp;<time datetime="2023-02-20T15:35:37.030Z">2023-02-20</time></div></div>
 
   <article class='md-text content wiki'>
   <h1 class="article-title"><span>概述</span></h1>
-  <h2 id="计算机的基本组成">计算机的基本组成</h2>
+  <h2 id="计算机的基本组成"><a class="markdownIt-Anchor" href="#计算机的基本组成"></a> 计算机的基本组成</h2>
 <div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="../../../assets/wiki/notes/von-neumann-structure.jpg" alt="Von Neumann structure" fancybox="true"/></div><div class="image-meta"><span class="image-caption center">Von Neumann structure</span></div></div>
 <p>早期的冯诺依曼体系结构以运算器为核心，数据的处理、输入输出和存储都要经过运算器，导致计算机的<strong>输入、输出、运算操作只能串行</strong>执行。</p>
 <p>改良后的计算机结构选取存储器为中心结构，使得运算器可以将绝大多数的时间全部投入数据的运算和处理之中。如下图所示：</p>
 <div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="../../../assets/wiki/notes/memory-centered-structure.jpg" fancybox="true"/></div></div>
-<h2 id="计算机的执行过程">计算机的执行过程</h2>
+<h2 id="计算机的执行过程"><a class="markdownIt-Anchor" href="#计算机的执行过程"></a> 计算机的执行过程</h2>
 <p>寄存器一般而言分为两类：通用寄存器和专用寄存器。通用寄存器，一般用于保存程序运行期间的中间结果。</p>
-<p>在主存储器中，存在两个专用寄存器：MAR(Memory Address
-Register)，<strong>存储器地址寄存器</strong>和MDR(Memory Data
-Register)，<strong>存储器数据寄存器</strong>。在控制器中也存在两个寄存器：PC(Program
-Counter)，<strong>程序计数器</strong>，储存正在执行的指令的地址，每次执行完一条指令后自增，指向下一条地址；IR(Instruction
-Register)，<strong>指令寄存器</strong>。</p>
+<p>在主存储器中，存在两个专用寄存器：MAR(Memory Address Register)，<strong>存储器地址寄存器</strong>和MDR(Memory Data Register)，<strong>存储器数据寄存器</strong>。在控制器中也存在两个寄存器：PC(Program Counter)，<strong>程序计数器</strong>，储存正在执行的指令的地址，每次执行完一条指令后自增，指向下一条地址；IR(Instruction Register)，<strong>指令寄存器</strong>。</p>
 <p>执行程序时，首先依据控制器PC中的地址从存储器中读取指令内容至IR，而后由控制系统分析IR的功能，进而执行后续操作。上述过程会一直循环。</p>
-<h3 id="指令字长存储字长和机器字长">指令字长、存储字长和机器字长</h3>
+<h3 id="指令字长-存储字长和机器字长"><a class="markdownIt-Anchor" href="#指令字长-存储字长和机器字长"></a> 指令字长、存储字长和机器字长</h3>
 <p>指令字长，指计算机每条指令的字节长度；存储字长，指计算机中的存储器每次能够访问的字节长度，一般是MDR的长度；机器字长，指计算机在同一时间段内能够处理的数据位数。</p>
-<h2 id="计算机的性能指标">计算机的性能指标</h2>
+<h2 id="计算机的性能指标"><a class="markdownIt-Anchor" href="#计算机的性能指标"></a> 计算机的性能指标</h2>
 <p>执行时间和吞吐率。</p>
-<h3 id="执行时间常用cpu时间来描述">执行时间常用CPU时间来描述</h3>
+<h3 id="执行时间常用cpu时间来描述"><a class="markdownIt-Anchor" href="#执行时间常用cpu时间来描述"></a> 执行时间常用CPU时间来描述</h3>
 <p><strong>CPU时间</strong>：给定程序任务占用处理器的时间，不包含输入输出的时间消耗。</p>
-<p><span class="math display">\[
-\text{CPU时间}=\text{指令条数}\textrm{IC}\times\text{平均执行每条指令所占用的时间},
-\]</span></p>
-<p><span class="math display">\[
-\text{平均执行每条指令所占用的时间}=\text{平均执行每条指令所花费的时钟周期}\textrm{CPI}\times\text{时钟周期}.
-\]</span></p>
-<h3 id="吞吐率常用mips和flops描述">吞吐率常用MIPS和FLOPS描述</h3>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>CPU时间</mtext><mo>=</mo><mtext>指令条数IC</mtext><mo>×</mo><mtext>平均执行每条指令所占用的时间</mtext><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\text{CPU时间}=\text{指令条数}\textrm{IC}\times\text{平均执行每条指令所占用的时间},
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">CPU</span><span class="mord cjk_fallback">时间</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord cjk_fallback">指令条数</span></span><span class="mord text"><span class="mord textrm">IC</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord cjk_fallback">平均执行每条指令所占用的时间</span></span><span class="mpunct">,</span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>平均执行每条指令所占用的时间</mtext><mo>=</mo><mtext>平均执行每条指令所花费的时钟周期CPI</mtext><mo>×</mo><mtext>时钟周期</mtext><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\text{平均执行每条指令所占用的时间}=\text{平均执行每条指令所花费的时钟周期}\textrm{CPI}\times\text{时钟周期}.
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">平均执行每条指令所占用的时间</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord cjk_fallback">平均执行每条指令所花费的时钟周期</span></span><span class="mord text"><span class="mord textrm">CPI</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">时钟周期</span></span><span class="mord">.</span></span></span></span></span></p>
+<h3 id="吞吐率常用mips和flops描述"><a class="markdownIt-Anchor" href="#吞吐率常用mips和flops描述"></a> 吞吐率常用MIPS和FLOPS描述</h3>
 <p>MIPS：每秒执行百万条指令数；FLOPS：每秒进行的浮点运算次数。</p>
 
   
@@ -160,11 +158,8 @@ Register)，<strong>指令寄存器</strong>。</p>
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">更多</span><a target="_blank" rel="noopener" href="https://felixchen0707.cn/">主页</a><a target="_blank" rel="noopener" href="https://unlockmusic.felixchen0707.cn/">音乐解锁</a><a target="_blank" rel="noopener" href="https://stats.uptimerobot.com/Ag6oyiZqGR">状态监控</a></div><div class="sitemap-group"><span class="fs14">全站友链</span><a target="_blank" rel="noopener" href="https://blog.beacox.space/">BeaCox</a><a target="_blank" rel="noopener" href="https://dusays.com/">杜老师说</a><a target="_blank" rel="noopener" href="https://szraz.cn/">宏的自留地</a><a href="/link/#%E4%B8%8E%E6%88%91%E4%BA%92%E6%8D%A2%E5%8F%8B%E9%93%BE">交换友链</a></div></div><div class="text"><p>本站由使用 <a
-target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a>
-主题创建。 本博客所有文章除特别声明外，均采用 <a
-target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
-4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">更多</span><a target="_blank" rel="noopener" href="https://felixchen0707.cn/">主页</a><a target="_blank" rel="noopener" href="https://unlockmusic.felixchen0707.cn/">音乐解锁</a><a target="_blank" rel="noopener" href="https://stats.uptimerobot.com/Ag6oyiZqGR">状态监控</a></div><div class="sitemap-group"><span class="fs14">全站友链</span><a target="_blank" rel="noopener" href="https://blog.beacox.space/">BeaCox</a><a target="_blank" rel="noopener" href="https://dusays.com/">杜老师说</a><a target="_blank" rel="noopener" href="https://szraz.cn/">宏的自留地</a><a href="/link/#%E4%B8%8E%E6%88%91%E4%BA%92%E6%8D%A2%E5%8F%8B%E9%93%BE">交换友链</a></div></div><div class="text"><p>本站由使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br />
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
