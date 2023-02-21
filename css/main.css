@@ -197,6 +197,7 @@ a.button.start.gradient {
   background: linear-gradient(to right, #92fe9d 0%, #00c9ff 50%, #92fe9d 100%);
   background-size: 1000%;
   color: #fff;
+  text-shadow: 0 0 1px rgba(0,0,0,0.12);
   animation: glow 60s linear infinite;
 }
 a.button.start.gradient:after {

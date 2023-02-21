@@ -209,6 +209,9 @@
     // 从 butterfly 和 volantis 获得灵感
     loadScript: (src, opt) => new Promise((resolve, reject) => {
       var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
       script.src = src;
       if (opt) {
         for (let key of Object.keys(opt)) {
@@ -247,6 +250,7 @@
       day: '天前',
       month: '个月前',
     },
+    root : '/',
   };
 
   // required plugins (only load if needs)
@@ -300,13 +304,13 @@
   <script>
     function load_twikoo() {
         if (!document.querySelectorAll("#twikoo_container")[0]) return;
-        stellar.loadScript('https://cdn.afdelivr.top/npm/twikoo@1.6.7/dist/twikoo.all.min.js', {defer: true}).then(function () {
+        stellar.loadScript('https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js', {defer: true}).then(function () {
             const el = document.getElementById("twikoo_container");
             var path = el.getAttribute('comment_id');
             if (!path) {
                 path = decodeURI(window.location.pathname);
             }
-            twikoo.init(Object.assign({"js":"https://cdn.afdelivr.top/npm/twikoo@1.6.7/dist/twikoo.all.min.js","envId":"https://twikoo.felixchen0707.cn/"}, {
+            twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js","envId":"https://twikoo.felixchen0707.cn/"}, {
                 el: '#twikoo_container',
                 path: path,
             }));
