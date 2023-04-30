@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>django学习笔记(1)：Django的安装与准备 - Felix Chen</title>
+
+  
+    <meta name="description" content="django是一款基于python的网站开发工具。本文主要介绍Django的安装与使用前准备。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="django学习笔记(1)：Django的安装与准备">
+<meta property="og:url" content="https://blog.snowflake.zone/posts/8/">
+<meta property="og:site_name" content="Felix Chen">
+<meta property="og:description" content="django是一款基于python的网站开发工具。本文主要介绍Django的安装与使用前准备。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-17T16:00:00.000Z">
+<meta property="article:author" content="Felix Chen">
+<meta property="article:tag" content="django">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@1545328384854482945">
+  
+  
+  
+  <meta name="keywords" content="django,python">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Felix Chen" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://i.imgtg.com/2022/06/06/n3ORs.jpg">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+    <script defer src="https://gcore.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+    <script defer src="https://gcore.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"onload="renderMathInElement(document.body);"></script>
+  
+
+
+  
+    
+      <link rel="preconnect" href="https://s1.hdslb.com/" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/regular.css" media="all" onload="this.media='all'" />
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/medium.css" media="all" onload="this.media='all'" />
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" target="_blank" rel="noopener" href="https://i.snowflake.zone/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://i.imgtg.com/2022/06/06/n3ORs.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Felix Chen</div><div class="sub cap">所见一切皆是奇迹。</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item" target="_blank" rel="noopener" href="https://snowflake.zone/">主页</a><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/link/">友链</a><a class="nav-item" href="/bbtalk/">动态</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/posts/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">django学习笔记(1)：Django的安装与准备</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#django%E4%BB%8B%E7%BB%8D"><span class="toc-text"> Django介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85django"><span class="toc-text"> 安装Django</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8django"><span class="toc-text"> 开始使用Django</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BAdjango%E9%A1%B9%E7%9B%AE"><span class="toc-text"> 新建Django项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#django%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text"> Django项目中的文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E5%BA%94%E7%94%A8"><span class="toc-text"> 新建应用</span></a></li></ol></li></ol></div></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/felixchen0707" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="mailto:self@snowflake.zone" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/a1b00e20f425d.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-07-17T16:00:00.000Z">2022-07-18</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>django学习笔记(1)：Django的安装与准备</span></h1>
+<p>开一个新坑，django开发。</p>
+<span id="more"></span>
+<h1 id="django介绍"><a class="markdownIt-Anchor" href="#django介绍"></a> Django介绍</h1>
+<p>  Django是一个开放源代码的Web应用框架，由Python写成。利用Django和相关的html和CSS知识，我们可以轻松构建出一个简单的网站。本文主要介绍使用Django的一些准备工作。</p>
+<h1 id="安装django"><a class="markdownIt-Anchor" href="#安装django"></a> 安装Django</h1>
+<p>  首先，你需要Python环境。这里以Python3环境为例。安装有两种方式：<strong>命令行安装</strong>和<strong>使用开发软件Pycharm</strong>。</p>
+<div class="tag-plugin tabs" align="center"id="tab_1"><div class="nav-tabs"><div class="tab active"><a href="#tab_1-1">使用命令行</a></div><div class="tab"><a href="#tab_1-2">Pycharm中使用</a></div></div><div class="tab-content"><div class="tab-pane active" id="tab_1-1"><p>  这里以Linux操作系统为例。首先打开命令行窗口，建立虚拟环境。</p>
+<div class="tag-plugin copy"><input class="copy-area" readonly id="copy_1" value="python -m venv ll_env"><button class="copy-btn" onclick="util.copy(&quot;copy_1&quot;,&quot;Copied!&quot;)"><svg class="icon copy-btn" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg></button></div>
+<p>而后激活此虚拟环境。</p>
+<div class="tag-plugin copy"><input class="copy-area" readonly id="copy_2" value="source ll_env/bin/activate"><button class="copy-btn" onclick="util.copy(&quot;copy_2&quot;,&quot;Copied!&quot;)"><svg class="icon copy-btn" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg></button></div>
+<p>如果想要停止此虚拟环境，你可以使用<code>deactivate</code>来关闭之。然后我们来下载Django。</p>
+<div class="tag-plugin copy"><input class="copy-area" readonly id="copy_3" value="pip install Django"><button class="copy-btn" onclick="util.copy(&quot;copy_3&quot;,&quot;Copied!&quot;)"><svg class="icon copy-btn" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg></button></div>
+<div class="tag-plugin note" color="color"><div class="title"><strong>注意</strong></div><div class="body"><p>如果下载速度很慢，你可以尝试更换成国内镜像源。例如<code>pip install Django -i https://pypi.tuna.tsinghua.edu.cn/simple</code></p><ul><li>清华：<a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></li><li>阿里云：<a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></li><li>中国科技大学 <a target="_blank" rel="noopener" href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></li><li>华中理工大学：<a target="_blank" rel="noopener" href="http://pypi.hustunique.com/">http://pypi.hustunique.com/</a></li><li>山东理工大学：<a target="_blank" rel="noopener" href="http://pypi.sdutlinux.org/">http://pypi.sdutlinux.org/</a></li><li>豆瓣：<a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></li></ul></div></div></div><div class="tab-pane" id="tab_1-2"><p>Pycharm中的使用相对而言简单许多。在项目文件下新建项目，而后在<u>文件-&gt;设置-&gt;项目-&gt;Python解释器</u>中安装Django即可。</p></div></div></div>
+<h1 id="开始使用django"><a class="markdownIt-Anchor" href="#开始使用django"></a> 开始使用Django</h1>
+<h2 id="新建django项目"><a class="markdownIt-Anchor" href="#新建django项目"></a> 新建Django项目</h2>
+<p>  下载完Django库后，我们需要在我们的项目文件夹中新建一个Django项目，这将告诉Django，这不是一个纯Python项目。首先我们在Pycharm的终端或者命令行窗口运行以下指令：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject &lt;projectname&gt; .</span><br></pre></td></tr></table></figure>
+<p>其中，<code>&lt;projectname&gt;</code>是项目名称。</p>
+<div class="tag-plugin note" color="blue"><div class="title">如果你使用的是Pycharm</div><div class="body"><p>Professional Edition，那么你可以直接在创建项目之初就创建Django项目，而无需上述的多步操作。但需要注意，在项目的<code>setting.py</code>中<code>TEMPLATES</code>中第一个字典的键<code>DIRS</code>存在<code>[os.path.join(BASE_DIR, templates)]</code>，它将影响静态文件查找位置，最好删去。</p></div></div>
+<div class="tag-plugin note" color="red"><div class="body"><p>注意，上述的命令语句千万不要忘记末尾的<code>.</code>。遗漏了这个句点将在后续项目部署上需要额外的复杂操作。</p></div></div>
+<p>  最后运行<code>python manage.py runserver</code>，检查Django是否能正确运行。若可以，则初步配置成功。</p>
+<h2 id="django项目中的文件结构"><a class="markdownIt-Anchor" href="#django项目中的文件结构"></a> Django项目中的文件结构</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;projectname&gt;</span><br><span class="line">├─manage.py       【项目管理、启动项目、创建应用、数据管理】【无需更改】</span><br><span class="line">│  </span><br><span class="line">└─&lt;projectname&gt;</span><br><span class="line">   ├─__init__.py</span><br><span class="line">   ├─settings.py  【项目配置文件】【例如注册应用、链接数据库】</span><br><span class="line">   ├─urls.py      【url和函数对应关系】【主要编写的部分】</span><br><span class="line">   ├─asgi.py      【接收网络请求】【无需更改】</span><br><span class="line">   └─vsgi.py      【接收网络请求】【无需更改】</span><br></pre></td></tr></table></figure>
+<h2 id="新建应用"><a class="markdownIt-Anchor" href="#新建应用"></a> 新建应用</h2>
+<p>  根据项目的业务逻辑，我们将其分为多个应用来分开管理。我们先新建第一个应用，在终端输入命令</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py startapp &lt;appname&gt;</span><br></pre></td></tr></table></figure>
+<p>于是我们得到这样的目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;projectname&gt;</span><br><span class="line">├─manage.py       【项目管理、启动项目、创建应用、数据管理】【无需更改】</span><br><span class="line">│</span><br><span class="line">├─&lt;appname&gt;</span><br><span class="line">|  ├─__init__.py</span><br><span class="line">|  ├─admin.py     【后台管理界面】</span><br><span class="line">|  ├─apps.py      【启动类】</span><br><span class="line">|  ├─models.py    【在数据库中创建对应表】</span><br><span class="line">|  ├─tests.py     【测试类】</span><br><span class="line">|  ├─views.py     【函数】</span><br><span class="line">|  └─migrations   【数据库迁移记录】</span><br><span class="line">|       └─__init__.py</span><br><span class="line">|  </span><br><span class="line">└─&lt;projectname&gt;</span><br><span class="line">   ├─__init__.py</span><br><span class="line">   ├─settings.py  【项目配置文件】【例如注册应用、链接数据库】</span><br><span class="line">   ├─urls.py      【url和函数对应关系】【主要编写的部分】</span><br><span class="line">   ├─asgi.py      【接收网络请求】【无需更改】</span><br><span class="line">   └─vsgi.py      【接收网络请求】【无需更改】</span><br></pre></td></tr></table></figure>
+<p>  新建应用后，我们需要对其<strong>注册</strong>。我们找到应用下的<code>apps.py</code>，找到其启动类类名，以下是一个例子。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># filename: apps.py</span></span><br><span class="line"><span class="keyword">from</span> django.apps <span class="keyword">import</span> AppConfig</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">App01Config</span>(<span class="title class_ inherited__">AppConfig</span>):</span><br><span class="line">    default_auto_field = <span class="string">&#x27;django.db.models.BigAutoField&#x27;</span></span><br><span class="line">    name = <span class="string">&#x27;app01&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>于是我们修改<code>settings.py</code>中的内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># filename: settings.py</span></span><br><span class="line"><span class="comment"># 省略</span></span><br><span class="line"></span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="comment"># 省略</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;&lt;appname&gt;.apps.APP01Config&#x27;</span>,</span><br><span class="line"></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">#省略</span></span><br></pre></td></tr></table></figure>
+<p>于是，新的应用已经注册完毕，我们可以在该应用上开发了。</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
+</div></section><section id="share"><div class="header"><span>分享文章</span></div><div class="body"><div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://blog.snowflake.zone/posts/8/" /></div><div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/b32ef3da1162a.svg"/></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.snowflake.zone/posts/8/&title=django学习笔记(1)：Django的安装与准备 - Felix Chen&pics=https://blog.felixchen0707.cn/assets/013/cover.jpg&summary=django是一款基于python的网站开发工具。本文主要介绍Django的安装与使用前准备。"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/80c07e4dbb303.svg"/></a><a class="social share-item email" href="mailto:?subject=django学习笔记(1)：Django的安装与准备 - Felix Chen&amp;body=https://blog.snowflake.zone/posts/8/"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/a1b00e20f425d.svg"/></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/social/8411ed322ced6.svg"/></a></div><div class="qrcode" id="qrcode-wechat" style="visibility:hidden;height:0"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://blog.snowflake.zone/posts/8/"/></div></div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/posts/9/">django学习笔记(2)：操作MySQL数据库</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/7/">《Hollow Knight(空洞骑士)》简评</a></div></section></div>
+
+
+<div class="related-wrap reveal" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>您可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="/posts/9/" title="django学习笔记(2)：操作MySQL数据库"><span class="title">django学习笔记(2)：操作MySQL数据库</span><span class="excerpt">使用django操作mysql数据库。</span></a><a class="item" href="/posts/10/" title="django学习笔记(3)：models数据类型处理"><span class="title">django学习笔记(3)：models数据类型处理</span><span class="excerpt">如何在django中处理不同的数据类型？</span></a><a class="item" href="/posts/12/" title="django笔记(4)：为ModelForm表单添加样式、如何拼接GET参数"><span class="title">django笔记(4)：为ModelForm表单添加样式、如何拼接GET参数</span><span class="excerpt">为django中的modelform添加样式。</span></a><a class="item" href="/posts/13/" title="在django中实现websocket"><span class="title">在django中实现websocket</span><span class="excerpt">本文在django中实现websocket协议。</span></a><a class="item" href="/posts/1/" title="RSA加密算法"><span class="title">RSA加密算法</span><span class="excerpt">RSA，如今最广泛使用的公钥加密算法。数字签名、数字证书、SSH、HTTPS的加密链接全是它的典型应用。RSA背后隐藏着什么？</span></a></div></section></div>
+
+
+
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body twikoo'>
+      
+
+<div id="twikoo_container"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+    </section>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">更多</span><a target="_blank" rel="noopener" href="https://snowflake.zone/">主页</a></div><div class="sitemap-group"><span class="fs14">全站友链</span><a target="_blank" rel="noopener" href="https://blog.beacox.space/">BeaCox</a><a target="_blank" rel="noopener" href="https://dusays.com/">杜老师说</a><a target="_blank" rel="noopener" href="https://szraz.cn/">宏的自留地</a><a href="/link/#%E4%B8%8E%E6%88%91%E4%BA%92%E6%8D%A2%E5%8F%8B%E9%93%BE">交换友链</a></div></div><div class="text"><p>本站由使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br />
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.1';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.1';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://static.beacox.space/volantis-static/libs/jquery/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://static.beacox.space/volantis-static/libs/marked/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://static.beacox.space/volantis-static/libs/vanilla-lazyload/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://static.beacox.space/volantis-static/libs/scrollreveal/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://static.beacox.space/volantis-static/libs/@fancyapps/ui/dist/fancybox.umd.js","css":"https://static.beacox.space/volantis-static/libs/@fancyapps/ui/dist/fancybox.css","selector":".swiper-slide img, .tk-content img:not([class*=\"emo\"])"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+    function load_twikoo() {
+        if (!document.querySelectorAll("#twikoo_container")[0]) return;
+        stellar.loadScript('https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js', {defer: true}).then(function () {
+            const el = document.getElementById("twikoo_container");
+            var path = el.getAttribute('comment_id');
+            if (!path) {
+                path = decodeURI(window.location.pathname);
+            }
+            twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js","envId":"https://twikoo.felixchen0707.cn/"}, {
+                el: '#twikoo_container',
+                path: path,
+            }));
+        });
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        load_twikoo();
+    });
+</script>
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
