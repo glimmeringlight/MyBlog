@@ -1,10 +1,10 @@
-https://blog.snowflake.zone/posts/18/
 https://blog.snowflake.zone/bbtalk/
 https://blog.snowflake.zone/link/
 https://blog.snowflake.zone/more/
 https://blog.snowflake.zone/link/rss/
 https://blog.snowflake.zone/wiki/notes/
 https://blog.snowflake.zone/wiki/notes/computer-organization-and-architecture/
+https://blog.snowflake.zone/posts/18/
 https://blog.snowflake.zone/posts/17/
 https://blog.snowflake.zone/posts/16/
 https://blog.snowflake.zone/posts/15/
