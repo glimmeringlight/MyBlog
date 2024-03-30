@@ -6,7 +6,7 @@
   <link href="https://blog.snowflake.zone/atom.xml" rel="self"/>
   
   <link href="https://blog.snowflake.zone/"/>
-  <updated>2023-08-03T16:00:00.000Z</updated>
+  <updated>2024-03-30T14:20:28.133Z</updated>
   <id>https://blog.snowflake.zone/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>后量子加密算法系列预告</title>
+    <link href="https://blog.snowflake.zone/posts/20/"/>
+    <id>https://blog.snowflake.zone/posts/20/</id>
+    <published>2024-03-30T13:37:31.000Z</published>
+    <updated>2024-03-30T14:20:28.133Z</updated>
+    
+    <content type="html"><![CDATA[<p>听到“后量子加密算法”这个标题，许多人可能会产生许多疑惑：这和量子计算机有什么关系？后量子加密算法包含哪些内容？本系列将阐述密码学的前沿研究方向：后量子密码学。</p><span id="more"></span><h2 id="序言"><a class="markdownIt-Anchor" href="#序言"></a> 序言</h2><h3 id="什么是后量子加密算法"><a class="markdownIt-Anchor" href="#什么是后量子加密算法"></a> 什么是“后量子加密算法”？</h3><p>听到“后量子加密算法”这个名称，许多人会与“量子计算机”迅速联系在一起。当然，这个直观感受是很对的。但是，“后量子加密算法”并不是运行在量子计算机上的加密算法————毕竟若真如此的话，确实离我们实在是有些遥远了。“后量子加密算法”真正的含义是：在量子计算机上难以被破解的加密算法，也即抗量子计算的加密算法。</p><h3 id="为什么需要新的算法"><a class="markdownIt-Anchor" href="#为什么需要新的算法"></a> 为什么需要新的算法？</h3><p>“为什么需要”这个问题往往是新科技或新技术产生的本质原因：需求决定创造。目前，世界上对于量子计算机的研究发展迅速，导致量子计算时代就快要揭开帷幕。我们需要关注的是，量子计算机在某些计算问题上具备远超电子计算机的计算能力。至于这点，我们可以简单地这么想象：电子计算机使用高低电平来储存信息比特，即对于单个存储单位，其非0即1；而对于量子计算机，情况并非如此：量子计算机中每一位称为“量子比特”。每一个量子比特具有三种状态（严格意义上不止三种，但便于理解，我们姑且认为是三种）：本征态0，本征态1以及量子叠加态（两个本征态的线性组合）。正因为量子叠加态的存在，使得我们在某一个比特上可以存储除了0和1之外的信息。因此，经典比特能够完成的计算一定能够在量子比特上完成，反之则未必。</p><p>量子计算机其实并不如我们想象的那么万能。目前而言，仅有少量的难以在电子计算机上求解的困难问题而能够被量子计算机简单求解。但很不幸，1994年Shor所提出的能够在量子计算机上实现的一种算法可以在多项式时间内有效地解决大整数分解问题（感兴趣可见<a href="https://ieeexplore.ieee.org/document/365700">论文原文</a>），这正是RSA的基础。现代的签名证书广泛地使用RSA。这也揭示了某些问题在量子计算机上强大地优越性。同时，设计基于新的困难问题的抗量子计算加密算法迫在眉睫。</p><h3 id="后量子加密算法"><a class="markdownIt-Anchor" href="#后量子加密算法"></a> 后量子加密算法</h3><p>后量子加密算法中，一般基于以下的数学问题构造：基于编码，基于格，基于多变量，基于哈希等。其中，基于格的后量子密码尤为引人注目。NIST的后量子密码算法征集中，绝大多数也都基于格困难问题构造。本系列试图以尽可能少的数学知识，以通俗浅显的方式介绍基于格的后量子密码学。<strong>当然，这并不意味着能够毫不费力地看懂。学习任何知识的过程都不可能如喝水般轻松。</strong> 系列文章的难度我希望尽可能能够控制在略加思考就能大致理解的程度。</p><p>下一节我们将从格的基本概念入手，对加密算法基于的困难问题的背景知识进行初步的把握。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;听到“后量子加密算法”这个标题，许多人可能会产生许多疑惑：这和量子计算机有什么关系？后量子加密算法包含哪些内容？本系列将阐述密码学的前沿研究方向：后量子密码学。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="后量子加密算法系列" scheme="https://blog.snowflake.zone/categories/%E5%90%8E%E9%87%8F%E5%AD%90%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/"/>
+    
+    <category term="密码学" scheme="https://blog.snowflake.zone/categories/%E5%90%8E%E9%87%8F%E5%AD%90%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+    
+    <category term="密码学" scheme="https://blog.snowflake.zone/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+    <category term="后量子" scheme="https://blog.snowflake.zone/tags/%E5%90%8E%E9%87%8F%E5%AD%90/"/>
+    
+  </entry>
   
   <entry>
     <title>《奥日与萤火意志》(Ori and the Will of Wisps)简评</title>
