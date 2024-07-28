@@ -1,0 +1,673 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>Stellar动态友链分组 - Felix Chen</title>
+
+  
+    <meta name="description" content="我们时常希望博客的友链界面能够对不同的友链分组；stellar的动态友链功能又十分强大，但所有导出的数据都会写入一个文件。这篇文章记录对动态友链生成仓库的改造，使之能够进行友链分类。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stellar动态友链分组">
+<meta property="og:url" content="https://blog.snowflake.zone/posts/17/index.html">
+<meta property="og:site_name" content="Felix Chen">
+<meta property="og:description" content="我们时常希望博客的友链界面能够对不同的友链分组；stellar的动态友链功能又十分强大，但所有导出的数据都会写入一个文件。这篇文章记录对动态友链生成仓库的改造，使之能够进行友链分类。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgtg.com/2022/11/13/teJUg.png">
+<meta property="article:published_time" content="2022-11-13T13:30:31.000Z">
+<meta property="article:modified_time" content="2022-11-14T16:00:00.000Z">
+<meta property="article:author" content="Felix Chen">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgtg.com/2022/11/13/teJUg.png">
+  
+  
+  
+  <meta name="keywords" content="博客">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/friends/atom.xml" title="Felix Chen" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+    <link rel="shortcut icon" href="/assets/profile.jpg">
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/assets/profile.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Felix Chen</div><div class="sub normal cap">所见一切皆是奇迹</div><div class="sub hover cap" style="opacity:0"> 文字2</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="社交" href="/friends/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span><a class="cap-action" id="rss" title="Subscribe" href="/friends/atom.xml"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19q0-.825.588-1.412T5 17q.825 0 1.413.588T7 19q0 .825-.587 1.413T5 21m13.5 0q-.65 0-1.088-.475T16.9 19.4q-.275-2.425-1.312-4.537T12.9 11.1q-1.65-1.65-3.762-2.687T4.6 7.1q-.65-.075-1.125-.512T3 5.5q0-.65.45-1.062t1.075-.363q3.075.275 5.763 1.563t4.737 3.337q2.05 2.05 3.338 4.738t1.562 5.762q.05.625-.363 1.075T18.5 21m-6 0q-.625 0-1.075-.437T10.85 19.5q-.225-1.225-.787-2.262T8.65 15.35q-.85-.85-1.888-1.412T4.5 13.15q-.625-.125-1.062-.575T3 11.5q0-.65.45-1.075t1.075-.325q1.825.25 3.413 1.063t2.837 2.062q1.25 1.25 2.063 2.838t1.062 3.412q.1.625-.325 1.075T12.5 21"/></svg></a></div><div class="widget-body fs14"><a class="item title" href="/posts/20/"><span class="title">后量子加密算法系列预告</span></a><a class="item title" href="/posts/19/"><span class="title">《奥日与萤火意志》(Ori and the Will of Wisps)简评</span></a><a class="item title" href="/posts/18/"><span class="title">原理与实践：详解跨站请求伪造(CSRF)攻击</span></a><a class="item title" href="/posts/17/"><span class="title">Stellar动态友链分组</span></a><a class="item title" href="/posts/16/"><span class="title">利用Github Action部署博客</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-11-13T13:30:31.000Z">2022-11-13</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2022-11-14T16:00:00.000Z">2022-11-15</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>Stellar动态友链分组</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>我们时常希望博客的友链界面能够对不同的友链分组；stellar的动态友链功能又十分强大，但所有导出的数据都会写入一个文件。这篇文章记录对动态友链生成仓库的改造，使之能够进行友链分类。</p>
+<span id="more"></span>
+<div class="tag-plugin colorful note" color="blue"><div class="title">11月15日更新</div><div class="body"><p>最新版本的动态友联已经支持输出到自定义文件，因此读者继续参考本文时请注意文章的时效性。</p></div></div>
+<div class="tag-plugin colorful note" color="yellow"><div class="body"><p>由于本文对于仓库源码有一定的改动，请先确认你是否确实有这个需求，而后再理性地选择是否魔改。</p></div></div>
+<p>废话我就不多说了，我们直接开始。</p>
+<h1 id="fork动态友链抓取仓库"><a class="markdownIt-Anchor" href="#fork动态友链抓取仓库"></a> fork动态友链抓取仓库</h1>
+<p>首先，你需要fork动态友链抓取仓库，链接如下：</p>
+<div class="tag-plugin link dis-select"><a class="link-card plain" title="" href="https://github.com/xaoxuu/issues-json-generator" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill="title,icon"><div class="left"><span class="title">https://github.com/xaoxuu/issues-json-generator</span><span class="cap link footnote">https://github.com/xaoxuu/issues-json-generator</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg"></div></div></a></div>
+<p>根据README内容完成配置。这里我就不多赘述了，需要保证你的workflow能够正确运行并且<code>output</code>分支能看到输出的<code>data.json</code>文件。</p>
+<h1 id="代码修改"><a class="markdownIt-Anchor" href="#代码修改"></a> 代码修改</h1>
+<p>在这个魔改中需要修改两部分内容(均处于<code>main</code>分支下)：<code>config.yml</code>和<code>generator/main.py</code>。这里先给出两者的文件：</p>
+<div class="tag-plugin colorful note" color="blue"><div class="title">提示</div><div class="body"><p>在复制源码前，我建议你看看我都改了什么。这有助于你对代码有宏观的把握，也对程序中可能出现的问题有解决想法。</p></div></div>
+<h2 id="configyml"><a class="markdownIt-Anchor" href="#configyml"></a> config.yml</h2>
+<div class="tag-plugin tabs"id="tab_2"><div class="nav-tabs"><div class="tab active"><a href="#tab_2-1">diff</a></div><div class="tab"><a href="#tab_2-2">源文件</a></div></div><div class="tab-content"><div class="tab-pane active" id="tab_2-1"><figure class="highlight diff"><figcaption><span>config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 网络请求设置</span><br><span class="line">request:</span><br><span class="line">  timeout: 10 # 超时设置</span><br><span class="line">  ssl: false # ssl设置</span><br><span class="line"></span><br><span class="line"># 要抓取的 issues 配置</span><br><span class="line">issues:</span><br><span class="line">  repo: felixchen0707/friendLink_api # 仓库持有者/仓库名</span><br><span class="line">  label: active # 筛选具有 active 标签的 issue ，取消此项则会提取所有 open 状态的 issue</span><br><span class="line"><span class="addition">+ className:</span></span><br><span class="line"><span class="addition">+   - &#x27;ordinary&#x27;</span></span><br><span class="line"><span class="addition">+   - &#x27;top&#x27;</span></span><br><span class="line">  sort: updated-desc # 排序，按最近更新，取消此项则按创建时间排序</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tab_2-2"><figure class="highlight yaml"><figcaption><span>config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 网络请求设置</span></span><br><span class="line"><span class="attr">request:</span></span><br><span class="line">  <span class="attr">timeout:</span> <span class="number">10</span> <span class="comment"># 超时设置</span></span><br><span class="line">  <span class="attr">ssl:</span> <span class="literal">false</span> <span class="comment"># ssl设置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 要抓取的 issues 配置</span></span><br><span class="line"><span class="attr">issues:</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">felixchen0707/friendLink_api</span> <span class="comment"># 仓库持有者/仓库名</span></span><br><span class="line">  <span class="attr">label:</span> <span class="string">active</span> <span class="comment"># 筛选具有 active 标签的 issue ，取消此项则会提取所有 open 状态的 issue</span></span><br><span class="line">  <span class="attr">className:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;ordinary&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;top&#x27;</span></span><br><span class="line">  <span class="attr">sort:</span> <span class="string">updated-desc</span> <span class="comment"># 排序，按最近更新，取消此项则按创建时间排序</span></span><br></pre></td></tr></table></figure></div></div></div>
+<h2 id="generatormainpy"><a class="markdownIt-Anchor" href="#generatormainpy"></a> generator/main.py</h2>
+<div class="tag-plugin tabs"id="tab_3"><div class="nav-tabs"><div class="tab active"><a href="#tab_3-1">diff</a></div><div class="tab"><a href="#tab_3-2">源文件</a></div></div><div class="tab-content"><div class="tab-pane active" id="tab_3-1"><figure class="highlight diff"><figcaption><span>generator/main.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># author: https://github.com/Zfour</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import os</span><br><span class="line">import request</span><br><span class="line">import json</span><br><span class="line">import config</span><br><span class="line"></span><br><span class="line">version = &#x27;v2&#x27;</span><br><span class="line">outputdir = version  # 输出文件结构变化时，更新输出路径版本</span><br><span class="line"><span class="deletion">- filename = &#x27;data.json&#x27;</span></span><br><span class="line"></span><br><span class="line">data_pool = []</span><br><span class="line"></span><br><span class="line"><span class="addition">+ cfg = config.load()</span></span><br><span class="line"><span class="addition">+ filter = cfg[&#x27;issues&#x27;]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def mkdir(path):</span><br><span class="line">    folder = os.path.exists(path)</span><br><span class="line">    if not folder:</span><br><span class="line">        os.makedirs(path)</span><br><span class="line">        print(&quot;create dir:&quot;, path)</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;dir exists:&quot;, path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="deletion">- def github_issuse(data_pool):</span></span><br><span class="line"><span class="addition">+ def github_issuse(data_pool, className):</span></span><br><span class="line">    print(&#x27;\n&#x27;)</span><br><span class="line">    print(&#x27;------- github issues start ----------&#x27;)</span><br><span class="line"><span class="addition">+   print(&#x27;is catching label:&#x27; + className)</span></span><br><span class="line">    baselink = &#x27;https://github.com/&#x27;</span><br><span class="line"><span class="deletion">-   cfg = config.load()</span></span><br><span class="line"><span class="deletion">-   filter = cfg[&#x27;issues&#x27;]</span></span><br><span class="line">    try:</span><br><span class="line">        for number in range(1, 100):</span><br><span class="line">            print(&#x27;page:&#x27;, number)</span><br><span class="line">            url = &#x27;https://github.com/&#x27; + filter[&#x27;repo&#x27;] + &#x27;/issues?page=&#x27; + str(number) + &#x27;&amp;q=is%3Aopen&#x27;</span><br><span class="line">            if filter[&#x27;label&#x27;]:</span><br><span class="line"><span class="deletion">-           url = url + &#x27;+label%3A&#x27; + filter[&#x27;label&#x27;]</span></span><br><span class="line"><span class="addition">+           url = url + &#x27;+label%3A&#x27; + filter[&#x27;label&#x27;] + &#x27;+label%3A&#x27; + className</span></span><br><span class="line">            if filter[&#x27;sort&#x27;]:</span><br><span class="line">                url = url + &#x27;+sort%3A&#x27; + filter[&#x27;sort&#x27;]</span><br><span class="line">            print(&#x27;parse:&#x27;, url)</span><br><span class="line">            github = request.get_data(url)</span><br><span class="line">            soup = BeautifulSoup(github, &#x27;html.parser&#x27;)</span><br><span class="line">            main_content = soup.find_all(&#x27;div&#x27;, &#123;&#x27;aria-label&#x27;: &#x27;Issues&#x27;&#125;)</span><br><span class="line">            linklist = main_content[0].find_all(&#x27;a&#x27;, &#123;&#x27;class&#x27;: &#x27;Link--primary&#x27;&#125;)</span><br><span class="line">            if len(linklist) == 0:</span><br><span class="line">                print(&#x27;&gt; end&#x27;)</span><br><span class="line">                break</span><br><span class="line">            for item in linklist:</span><br><span class="line">                issueslink = baselink + item[&#x27;href&#x27;]</span><br><span class="line">                issues_page = request.get_data(issueslink)</span><br><span class="line">                issues_soup = BeautifulSoup(issues_page, &#x27;html.parser&#x27;)</span><br><span class="line">                try:</span><br><span class="line">                    issues_linklist = issues_soup.find_all(&#x27;pre&#x27;)</span><br><span class="line">                    source = issues_linklist[0].text</span><br><span class="line">                    if &quot;&#123;&quot; in source:</span><br><span class="line">                        source = json.loads(source)</span><br><span class="line">                        print(source)</span><br><span class="line">                        data_pool.append(source)</span><br><span class="line">                except:</span><br><span class="line">                    continue</span><br><span class="line">    except Exception as e:</span><br><span class="line"><span class="deletion">-       print(&#x27;&gt; end&#x27;)</span></span><br><span class="line"><span class="addition">+       print(&#x27;&gt; end catching label:&#x27; + className)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(&#x27;------- github issues end ----------&#x27;)</span><br><span class="line">print(&#x27;\n&#x27;)</span><br><span class="line"></span><br><span class="line"># 友链规则</span><br><span class="line"><span class="addition">+ for className in filter[&#x27;className&#x27;]:</span></span><br><span class="line"><span class="addition">+   data_pool.clear()</span></span><br><span class="line"><span class="deletion">-   github_issuse(data_pool=data_pool)</span></span><br><span class="line"><span class="addition">+   github_issuse(data_pool=data_pool, className=className)</span></span><br><span class="line">    mkdir(outputdir)</span><br><span class="line"><span class="deletion">-   full_path = outputdir + &#x27;/&#x27; + filename</span></span><br><span class="line"><span class="addition">+   full_path = outputdir + &#x27;/&#x27; + className + &#x27;.json&#x27;</span></span><br><span class="line">    with open(full_path, &#x27;w&#x27;, encoding=&#x27;utf-8&#x27;) as file_obj:</span><br><span class="line">        data = &#123;</span><br><span class="line">            &#x27;version&#x27;: version,</span><br><span class="line">            &#x27;content&#x27;: data_pool</span><br><span class="line">        &#125;</span><br><span class="line">        json.dump(data, file_obj, ensure_ascii=False, indent=2)</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tab_3-2"><figure class="highlight python"><figcaption><span>generator/main.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># author: https://github.com/Zfour</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> config</span><br><span class="line"></span><br><span class="line">version = <span class="string">&#x27;v2&#x27;</span></span><br><span class="line">outputdir = version  <span class="comment"># 输出文件结构变化时，更新输出路径版本</span></span><br><span class="line"></span><br><span class="line">data_pool = []</span><br><span class="line"></span><br><span class="line">cfg = config.load()</span><br><span class="line"><span class="built_in">filter</span> = cfg[<span class="string">&#x27;issues&#x27;</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mkdir</span>(<span class="params">path</span>):</span><br><span class="line">    folder = os.path.exists(path)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> folder:</span><br><span class="line">        os.makedirs(path)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;create dir:&quot;</span>, path)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;dir exists:&quot;</span>, path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">github_issuse</span>(<span class="params">data_pool, className</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------- github issues start ----------&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;is catching label:&#x27;</span> + className)</span><br><span class="line">    baselink = <span class="string">&#x27;https://github.com/&#x27;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">for</span> number <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">100</span>):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;page:&#x27;</span>, number)</span><br><span class="line">            url = <span class="string">&#x27;https://github.com/&#x27;</span> + <span class="built_in">filter</span>[<span class="string">&#x27;repo&#x27;</span>] + <span class="string">&#x27;/issues?page=&#x27;</span> + <span class="built_in">str</span>(number) + <span class="string">&#x27;&amp;q=is%3Aopen&#x27;</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">filter</span>[<span class="string">&#x27;label&#x27;</span>]:</span><br><span class="line">                url = url + <span class="string">&#x27;+label%3A&#x27;</span> + <span class="built_in">filter</span>[<span class="string">&#x27;label&#x27;</span>] + <span class="string">&#x27;+label%3A&#x27;</span> + className</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">filter</span>[<span class="string">&#x27;sort&#x27;</span>]:</span><br><span class="line">                url = url + <span class="string">&#x27;+sort%3A&#x27;</span> + <span class="built_in">filter</span>[<span class="string">&#x27;sort&#x27;</span>]</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;parse:&#x27;</span>, url)</span><br><span class="line">            github = request.get_data(url)</span><br><span class="line">            soup = BeautifulSoup(github, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line">            main_content = soup.find_all(<span class="string">&#x27;div&#x27;</span>, &#123;<span class="string">&#x27;aria-label&#x27;</span>: <span class="string">&#x27;Issues&#x27;</span>&#125;)</span><br><span class="line">            linklist = main_content[<span class="number">0</span>].find_all(<span class="string">&#x27;a&#x27;</span>, &#123;<span class="string">&#x27;class&#x27;</span>: <span class="string">&#x27;Link--primary&#x27;</span>&#125;)</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(linklist) == <span class="number">0</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&#x27;&gt; end&#x27;</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">for</span> item <span class="keyword">in</span> linklist:</span><br><span class="line">                issueslink = baselink + item[<span class="string">&#x27;href&#x27;</span>]</span><br><span class="line">                issues_page = request.get_data(issueslink)</span><br><span class="line">                issues_soup = BeautifulSoup(issues_page, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    issues_linklist = issues_soup.find_all(<span class="string">&#x27;pre&#x27;</span>)</span><br><span class="line">                    source = issues_linklist[<span class="number">0</span>].text</span><br><span class="line">                    <span class="keyword">if</span> <span class="string">&quot;&#123;&quot;</span> <span class="keyword">in</span> source:</span><br><span class="line">                        source = json.loads(source)</span><br><span class="line">                        <span class="built_in">print</span>(source)</span><br><span class="line">                        data_pool.append(source)</span><br><span class="line">                <span class="keyword">except</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;&gt; end catching label:&#x27;</span> + className)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;------- github issues end ----------&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 友链规则</span></span><br><span class="line"><span class="keyword">for</span> className <span class="keyword">in</span> <span class="built_in">filter</span>[<span class="string">&#x27;className&#x27;</span>]:</span><br><span class="line">    data_pool.clear()</span><br><span class="line">    github_issuse(data_pool=data_pool, className=className)</span><br><span class="line">    mkdir(outputdir)</span><br><span class="line">    full_path = outputdir + <span class="string">&#x27;/&#x27;</span> + className + <span class="string">&#x27;.json&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(full_path, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file_obj:</span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;version&#x27;</span>: version,</span><br><span class="line">            <span class="string">&#x27;content&#x27;</span>: data_pool</span><br><span class="line">        &#125;</span><br><span class="line">        json.dump(data, file_obj, ensure_ascii=<span class="literal">False</span>, indent=<span class="number">2</span>)</span><br></pre></td></tr></table></figure></div></div></div>
+<h1 id="如何配置classname"><a class="markdownIt-Anchor" href="#如何配置classname"></a> 如何配置className</h1>
+<p>在我的构想中，一个网站应该由两部分构成：<strong>网站状态</strong>和<strong>网站分类</strong>。前者通过<code>active</code>、<code>404</code>、<code>suspend</code>这类的label进行标记；后者则是你自定义的分类。</p>
+<p>对于你自定义的分类名称，你需要写在<code>config.yml</code>中的<code>className</code>项中，例如我这里用<code>ordinary</code>和<code>top</code>来区分一般友链和置顶友链。经过配置后的<code>className</code>包含的元素会在执行action的时候依次被作为label<strong>单独抓取</strong>合适的友链，例如下图是我的友链仓库：</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://i.imgtg.com/2022/11/13/teJUg.png" alt="我的友链仓库"/></div><div class="image-meta"><span class="image-caption center">我的友链仓库</span></div></div>
+<p>其中，标记为<code>active</code>的issue表示允许被抓取，而标记为<code>top</code>和<code>ordinary</code>的issue会在抓取<code>top</code>和<code>ordinary</code>的两批抓取中分别被抓取，来达到对友链分类的效果。</p>
+<h1 id="期望的运行结果"><a class="markdownIt-Anchor" href="#期望的运行结果"></a> 期望的运行结果</h1>
+<p>被标记为<code>classA</code>的友链将会输出至<code>output</code>分支下<code>v2/classA.json</code>文件中，其他情况类似。由于label的名字与输出文件的名字强相关，这也要求你<strong>不要用奇怪的符号作为label的内容</strong>。</p>
+<h1 id="一些些补充"><a class="markdownIt-Anchor" href="#一些些补充"></a> 一些些补充</h1>
+<h2 id="每个issue对应两个label"><a class="markdownIt-Anchor" href="#每个issue对应两个label"></a> 每个issue对应两个label</h2>
+<p>由于我使用<strong>站点状态</strong>和<strong>站点分类</strong>来分别表示一个网站，因此每一个issue至少都有两个label标记。例如，你的<code>config.yml</code>中配置了：</p>
+<figure class="highlight yaml"><figcaption><span>config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">issues:</span></span><br><span class="line">    <span class="attr">label:</span> <span class="string">active</span></span><br></pre></td></tr></table></figure>
+<p>若你仅仅为一个issue打上了<code>ordinary</code>标记而没有加上<code>active</code>标记或者反之，则该issue都不会被读取到。</p>
+<h2 id="加快访问速度"><a class="markdownIt-Anchor" href="#加快访问速度"></a> 加快访问速度</h2>
+<p>由于直接访问github的速度极慢，你可以使用Vercel构建该仓库来达到加速访问的效果。在你的Vercel的面板界面(dashboard)新建项目，导入你的友链数据仓库并点击deploy。<strong>由于你的输出内容一般不在<code>main</code>分支但是Vercel却会默认构建<code>main</code>分支，你需要进行以下操作</strong>：</p>
+<p>点开项目，进入<code>Settings-&gt;Git</code>界面，找到<code>Production Branch</code>配置项，将分支名称从<code>main/master</code>改成<code>output</code>。下次向<code>output</code>分支推送时，Vercel就会重新改为部署该分支了。</p>
+<h1 id="致谢"><a class="markdownIt-Anchor" href="#致谢"></a> 致谢</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/xaoxuu/issues-json-generator">xaoxuu/issues-json-generator</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.beacox.space/">BeaCox</a>的灵感</li>
+</ul>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://blog.snowflake.zone/posts/17/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.snowflake.zone/posts/17/&title=Stellar动态友链分组 - Felix Chen&summary=我们时常希望博客的友链界面能够对不同的友链分组；stellar的动态友链功能又十分强大，但所有导出的数据都会写入一个文件。这篇文章记录对动态友链生成仓库的改造，使之能够进行友链分类。"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://blog.snowflake.zone/posts/17/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/posts/18/">原理与实践：详解跨站请求伪造(CSRF)攻击</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/16/">利用Github Action部署博客</a></div></section></div>
+
+<div class="related-wrap" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>猜你喜欢</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="\posts\16\" title="利用Github Action部署博客"><span class="title">利用Github Action部署博客</span></a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body twikoo'>
+      
+
+<div id="twikoo_container"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">更多</span><a target="_blank" rel="noopener" href="https://github.com/glimmeringlight/">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">Felix Chen</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br />
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#fork%E5%8A%A8%E6%80%81%E5%8F%8B%E9%93%BE%E6%8A%93%E5%8F%96%E4%BB%93%E5%BA%93"><span class="toc-text"> fork动态友链抓取仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9"><span class="toc-text"> 代码修改</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#configyml"><span class="toc-text"> config.yml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#generatormainpy"><span class="toc-text"> generator&#x2F;main.py</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEclassname"><span class="toc-text"> 如何配置className</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9B%E7%9A%84%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="toc-text"> 期望的运行结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E4%BA%9B%E8%A1%A5%E5%85%85"><span class="toc-text"> 一些些补充</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%8F%E4%B8%AAissue%E5%AF%B9%E5%BA%94%E4%B8%A4%E4%B8%AAlabel"><span class="toc-text"> 每个issue对应两个label</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%BF%AB%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6"><span class="toc-text"> 加快访问速度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%B4%E8%B0%A2"><span class="toc-text"> 致谢</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.getElementById('twikoo_container');
+  util.viewportLazyload(el, load_twikoo, false);
+
+  function load_twikoo() {
+    if (!el) return;
+    utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js', {defer: true}).then(function () {
+      const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+      twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js","envId":"https://twikoo.snowflake.zone/"}, {
+        el: '#twikoo_container',
+        path: path,
+      }));
+    });
+  }
+</script>
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+- <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+- <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

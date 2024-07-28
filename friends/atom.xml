@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Felix Chen</title>
+  
+  
+  <link href="https://blog.snowflake.zone/friends/atom.xml" rel="self"/>
+  
+  <link href="https://blog.snowflake.zone/"/>
+  <updated>2024-07-28T14:48:19.061Z</updated>
+  <id>https://blog.snowflake.zone/</id>
+  
+  <author>
+    <name>Felix Chen</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>后量子加密算法系列预告</title>
+    <link href="https://blog.snowflake.zone/posts/20/"/>
+    <id>https://blog.snowflake.zone/posts/20/</id>
+    <published>2024-03-30T13:37:31.000Z</published>
+    <updated>2024-07-28T14:48:19.061Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;听到“后量子加密算法”这个标题，许多人可能会产生许多疑惑：这和量子计算机有什么关系？后量子加密算法包含哪些内容？本系列将阐述密码学的前沿研究方向：后量子密码学。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="后量子加密算法系列" scheme="https://blog.snowflake.zone/categories/%E5%90%8E%E9%87%8F%E5%AD%90%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/"/>
+    
+    <category term="密码学" scheme="https://blog.snowflake.zone/categories/%E5%90%8E%E9%87%8F%E5%AD%90%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+    
+    <category term="密码学" scheme="https://blog.snowflake.zone/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+    <category term="后量子" scheme="https://blog.snowflake.zone/tags/%E5%90%8E%E9%87%8F%E5%AD%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《奥日与萤火意志》(Ori and the Will of Wisps)简评</title>
+    <link href="https://blog.snowflake.zone/posts/19/"/>
+    <id>https://blog.snowflake.zone/posts/19/</id>
+    <published>2023-08-03T16:00:00.000Z</published>
+    <updated>2023-08-03T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;一周断断续续通关了奥日 2，简单地对这个游戏做个总结。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="游戏" scheme="https://blog.snowflake.zone/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+    
+    <category term="游戏" scheme="https://blog.snowflake.zone/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="奥日" scheme="https://blog.snowflake.zone/tags/%E5%A5%A5%E6%97%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原理与实践：详解跨站请求伪造(CSRF)攻击</title>
+    <link href="https://blog.snowflake.zone/posts/18/"/>
+    <id>https://blog.snowflake.zone/posts/18/</id>
+    <published>2023-05-21T16:00:00.000Z</published>
+    <updated>2023-05-21T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;为什么不能点击不明来源的链接？其背后的原理又是如何的？这篇文章，就带你走进一种利用恶意链接发起攻击的方式：跨站请求伪造攻击(CSRF)。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Web安全" scheme="https://blog.snowflake.zone/categories/Web%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="Web安全" scheme="https://blog.snowflake.zone/tags/Web%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Stellar动态友链分组</title>
+    <link href="https://blog.snowflake.zone/posts/17/"/>
+    <id>https://blog.snowflake.zone/posts/17/</id>
+    <published>2022-11-13T13:30:31.000Z</published>
+    <updated>2022-11-14T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;我们时常希望博客的友链界面能够对不同的友链分组；stellar的动态友链功能又十分强大，但所有导出的数据都会写入一个文件。这篇文章记录对动态友链生成仓库的改造，使之能够进行友链分类。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="博客" scheme="https://blog.snowflake.zone/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="博客" scheme="https://blog.snowflake.zone/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用Github Action部署博客</title>
+    <link href="https://blog.snowflake.zone/posts/16/"/>
+    <id>https://blog.snowflake.zone/posts/16/</id>
+    <published>2022-11-10T14:47:21.000Z</published>
+    <updated>2022-11-09T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="博客" scheme="https://blog.snowflake.zone/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="博客" scheme="https://blog.snowflake.zone/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的大一</title>
+    <link href="https://blog.snowflake.zone/posts/15/"/>
+    <id>https://blog.snowflake.zone/posts/15/</id>
+    <published>2022-10-31T16:00:00.000Z</published>
+    <updated>2022-10-31T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;可能是想利用闲下来的功夫哔哔点啥。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="碎碎念" scheme="https://blog.snowflake.zone/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+    <category term="碎碎念" scheme="https://blog.snowflake.zone/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录第一次手搓css</title>
+    <link href="https://blog.snowflake.zone/posts/14/"/>
+    <id>https://blog.snowflake.zone/posts/14/</id>
+    <published>2022-10-16T06:24:34.000Z</published>
+    <updated>2022-10-16T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;手搓一次 css 以后，最大的感受就是：再也不想写 css 了。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="写码经历" scheme="https://blog.snowflake.zone/categories/%E5%86%99%E7%A0%81%E7%BB%8F%E5%8E%86/"/>
+    
+    
+    <category term="css" scheme="https://blog.snowflake.zone/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在django中实现websocket</title>
+    <link href="https://blog.snowflake.zone/posts/13/"/>
+    <id>https://blog.snowflake.zone/posts/13/</id>
+    <published>2022-08-02T16:00:00.000Z</published>
+    <updated>2022-08-02T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文在 django 中实现 websocket 协议。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="django" scheme="https://blog.snowflake.zone/tags/django/"/>
+    
+    <category term="python" scheme="https://blog.snowflake.zone/tags/python/"/>
+    
+    <category term="websocket" scheme="https://blog.snowflake.zone/tags/websocket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>django笔记(4)：为ModelForm表单添加样式、如何拼接GET参数</title>
+    <link href="https://blog.snowflake.zone/posts/12/"/>
+    <id>https://blog.snowflake.zone/posts/12/</id>
+    <published>2022-07-31T16:00:00.000Z</published>
+    <updated>2022-07-31T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;为 django 中的 modelform 添加样式。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="django" scheme="https://blog.snowflake.zone/tags/django/"/>
+    
+    <category term="python" scheme="https://blog.snowflake.zone/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>快速生成requirements.txt</title>
+    <link href="https://blog.snowflake.zone/posts/11/"/>
+    <id>https://blog.snowflake.zone/posts/11/</id>
+    <published>2022-07-28T16:00:00.000Z</published>
+    <updated>2022-07-28T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">两行命令快速生成项目的requirements.txt！</summary>
+    
+    
+    
+    <category term="编程技巧" scheme="https://blog.snowflake.zone/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+    
+    <category term="Python" scheme="https://blog.snowflake.zone/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>django学习笔记(3)：models数据类型处理</title>
+    <link href="https://blog.snowflake.zone/posts/10/"/>
+    <id>https://blog.snowflake.zone/posts/10/</id>
+    <published>2022-07-21T16:00:00.000Z</published>
+    <updated>2022-07-21T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;如何在 django 中处理不同的数据类型？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="django" scheme="https://blog.snowflake.zone/tags/django/"/>
+    
+    <category term="python" scheme="https://blog.snowflake.zone/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>django学习笔记(2)：操作MySQL数据库</title>
+    <link href="https://blog.snowflake.zone/posts/9/"/>
+    <id>https://blog.snowflake.zone/posts/9/</id>
+    <published>2022-07-20T16:00:00.000Z</published>
+    <updated>2022-07-20T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;使用 django 操作 mysql 数据库。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="django" scheme="https://blog.snowflake.zone/tags/django/"/>
+    
+    <category term="python" scheme="https://blog.snowflake.zone/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>django学习笔记(1)：Django的安装与准备</title>
+    <link href="https://blog.snowflake.zone/posts/8/"/>
+    <id>https://blog.snowflake.zone/posts/8/</id>
+    <published>2022-07-17T16:00:00.000Z</published>
+    <updated>2022-07-17T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">django是一款基于python的网站开发工具。本文主要介绍Django的安装与使用前准备。</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="django" scheme="https://blog.snowflake.zone/tags/django/"/>
+    
+    <category term="python" scheme="https://blog.snowflake.zone/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《Hollow Knight(空洞骑士)》简评</title>
+    <link href="https://blog.snowflake.zone/posts/7/"/>
+    <id>https://blog.snowflake.zone/posts/7/</id>
+    <published>2022-07-07T16:00:00.000Z</published>
+    <updated>2022-07-07T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这次打算写点不一样的，就来浅浅聊一下最近走完主线剧情的《Hollow Knight(空洞骑士)》吧。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="游戏" scheme="https://blog.snowflake.zone/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+    
+    <category term="游戏" scheme="https://blog.snowflake.zone/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="空洞骑士" scheme="https://blog.snowflake.zone/tags/%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>6月24日</title>
+    <link href="https://blog.snowflake.zone/posts/6/"/>
+    <id>https://blog.snowflake.zone/posts/6/</id>
+    <published>2022-06-23T16:00:00.000Z</published>
+    <updated>2022-06-23T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;随便写写。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="碎碎念" scheme="https://blog.snowflake.zone/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+    <category term="碎碎念" scheme="https://blog.snowflake.zone/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python学习笔记：列表和字典</title>
+    <link href="https://blog.snowflake.zone/posts/5/"/>
+    <id>https://blog.snowflake.zone/posts/5/</id>
+    <published>2022-06-15T16:00:00.000Z</published>
+    <updated>2022-06-15T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Python中的列表和字典</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Python" scheme="https://blog.snowflake.zone/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构试题分析</title>
+    <link href="https://blog.snowflake.zone/posts/4/"/>
+    <id>https://blog.snowflake.zone/posts/4/</id>
+    <published>2022-05-28T13:26:28.000Z</published>
+    <updated>2022-05-28T13:26:28.000Z</updated>
+    
+    
+    <summary type="html">本文选择了数据结构的一些考题，给出了完整的代码实现。</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="数据结构" scheme="https://blog.snowflake.zone/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DES加密算法</title>
+    <link href="https://blog.snowflake.zone/posts/3/"/>
+    <id>https://blog.snowflake.zone/posts/3/</id>
+    <published>2022-05-18T02:58:16.000Z</published>
+    <updated>2022-05-18T02:58:16.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;DES加密算法是目前使用最广泛的对称加密算法。它体现了对称加密算法中最经典的Feistel结构。尽管DES加密算法注定要为新的加密标准让出位置，但依旧是我们深入理解对称加密的最好的例子。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="密码学" scheme="https://blog.snowflake.zone/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>KMP算法</title>
+    <link href="https://blog.snowflake.zone/posts/2/"/>
+    <id>https://blog.snowflake.zone/posts/2/</id>
+    <published>2022-05-18T02:52:47.000Z</published>
+    <updated>2022-05-18T02:52:47.000Z</updated>
+    
+    
+    <summary type="html">字符串的基本操作之一是find()函数，即从某一个字符串中找到对应的子串位置。KMP算法是目前为止最为广泛使用的寻找子字符串的算法。</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="数据结构" scheme="https://blog.snowflake.zone/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="算法" scheme="https://blog.snowflake.zone/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RSA加密算法</title>
+    <link href="https://blog.snowflake.zone/posts/1/"/>
+    <id>https://blog.snowflake.zone/posts/1/</id>
+    <published>2022-05-18T02:46:46.000Z</published>
+    <updated>2022-05-18T02:46:46.000Z</updated>
+    
+    
+    <summary type="html">RSA，如今最广泛使用的公钥加密算法。数字签名、数字证书、SSH、HTTPS的加密链接全是它的典型应用。RSA背后隐藏着什么？</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="密码学" scheme="https://blog.snowflake.zone/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+</feed>
