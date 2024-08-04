@@ -1,0 +1,713 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>【整活向】一觉起来，Python的class关键字不见了？？？ - Felix Chen</title>
+
+  
+    <meta name="description" content="“欸？为什么我的编辑器给我的class标红了啊？？？” “你不知道吗？Python的新版本移除了class关键字啊？” “啊？？？”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【整活向】一觉起来，Python的class关键字不见了？？？">
+<meta property="og:url" content="https://blog.snowflake.zone/posts/21/index.html">
+<meta property="og:site_name" content="Felix Chen">
+<meta property="og:description" content="“欸？为什么我的编辑器给我的class标红了啊？？？” “你不知道吗？Python的新版本移除了class关键字啊？” “啊？？？”">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-04T05:49:29.000Z">
+<meta property="article:modified_time" content="2024-08-04T07:29:12.120Z">
+<meta property="article:author" content="Felix Chen">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="整活向">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="Python,整活向">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/friends/atom.xml" title="Felix Chen" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.1">
+
+  
+    <link rel="shortcut icon" href="/assets/profile.jpg">
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/assets/profile.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Felix Chen</div><div class="sub normal cap">所见一切皆是奇迹</div><div class="sub hover cap" style="opacity:0"> 文字2</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="社交" href="/friends/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span><a class="cap-action" id="rss" title="Subscribe" href="/friends/atom.xml"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19q0-.825.588-1.412T5 17q.825 0 1.413.588T7 19q0 .825-.587 1.413T5 21m13.5 0q-.65 0-1.088-.475T16.9 19.4q-.275-2.425-1.312-4.537T12.9 11.1q-1.65-1.65-3.762-2.687T4.6 7.1q-.65-.075-1.125-.512T3 5.5q0-.65.45-1.062t1.075-.363q3.075.275 5.763 1.563t4.737 3.337q2.05 2.05 3.338 4.738t1.562 5.762q.05.625-.363 1.075T18.5 21m-6 0q-.625 0-1.075-.437T10.85 19.5q-.225-1.225-.787-2.262T8.65 15.35q-.85-.85-1.888-1.412T4.5 13.15q-.625-.125-1.062-.575T3 11.5q0-.65.45-1.075t1.075-.325q1.825.25 3.413 1.063t2.837 2.062q1.25 1.25 2.063 2.838t1.062 3.412q.1.625-.325 1.075T12.5 21"/></svg></a></div><div class="widget-body fs14"><a class="item title" href="/posts/20/"><span class="title">后量子加密算法系列预告</span></a><a class="item title" href="/posts/21/"><span class="title">【整活向】一觉起来，Python的class关键字不见了？？？</span></a><a class="item title" href="/posts/19/"><span class="title">《奥日与萤火意志》(Ori and the Will of Wisps)简评</span></a><a class="item title" href="/posts/18/"><span class="title">原理与实践：详解跨站请求伪造(CSRF)攻击</span></a><a class="item title" href="/posts/17/"><span class="title">Stellar动态友链分组</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/">编程技巧</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/Python/">Python</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-08-04T05:49:29.000Z">2024-08-04</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-08-04T07:29:12.120Z">2024-08-04</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>【整活向】一觉起来，Python的class关键字不见了？？？</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>“欸？为什么我的编辑器给我的<code>class</code>标红了啊？？？”</p>
+<p>“你不知道吗？Python的新版本移除了<code>class</code>关键字啊？”</p>
+<p>“啊？？？”</p>
+<span id="more"></span>
+<h2 id="一个早晨"><a class="markdownIt-Anchor" href="#一个早晨"></a> 一个早晨</h2>
+<p>由于不明原因，我突然没法在Python里使用<code>class</code>关键字了！！！这怎么能够接受呢？我的面向对象编程啊！不行不行，没有<code>class</code>我还怎么写代码！突然，一个声音出现在这小小的房间里。</p>
+<p>“哦哈哈哈哈，还记得我吗？”</p>
+<p>“你是谁？？”</p>
+<p>“闭包——包——嗷——”神秘人悄然离去，只剩下长长的尾音。</p>
+<h2 id="不行你还我class"><a class="markdownIt-Anchor" href="#不行你还我class"></a> 不行！你还我<code>class</code>！</h2>
+<h3 id="第一步模拟类的行为"><a class="markdownIt-Anchor" href="#第一步模拟类的行为"></a> 第一步！模拟类的行为</h3>
+<p>闭包这位同学有一个神奇的性质，就是它会保存自己所存在的上下文环境。在某种意义上，其可以很大程度模拟面向对象的行为。下面就是一个简单的闭包的例子。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>():</span><br><span class="line">    a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">g</span>():</span><br><span class="line">        <span class="keyword">nonlocal</span> a</span><br><span class="line">        a += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(a)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> g</span><br><span class="line"></span><br><span class="line">g1 = f()</span><br><span class="line">g2 = f()</span><br><span class="line"></span><br><span class="line">g1()</span><br><span class="line">g1()</span><br><span class="line">g1()</span><br><span class="line">g2()</span><br><span class="line">g2()</span><br><span class="line">g2()</span><br></pre></td></tr></table></figure>
+<p>上述代码的输出如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<p>可以看到，<code>g1</code>和<code>g2</code>各自维护住了自己所在上下文中的<code>a</code>的值，并且没有产生干扰。基于闭包的这个特点，我们可以实现一个简单的类。</p>
+<h3 id="第二步造一个简单的类"><a class="markdownIt-Anchor" href="#第二步造一个简单的类"></a> 第二步！造一个简单的类</h3>
+<p>通过上面的例子可以看到，通过一个函数返回其内部的函数对象就可以简单地构造出一个闭包。因此，我们先搭好框架。比如我们模拟一个<code>Dog</code>类：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Dog</span>(<span class="params">name: <span class="built_in">str</span>, age: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">this</span>():</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> this</span><br></pre></td></tr></table></figure>
+<p>上述就是一个极其简单的闭包。通过进行函数调用：<code>dog = Dog(&quot;Doge&quot;, 5)</code>，我们拿到了<code>Dog()</code>返回的一个函数对象；又由于闭包的性质，该函数对象外层环境中的局部变量<code>name</code>和<code>age</code>又会被维持住，这就构成了一个简单的闭包。</p>
+<p>类一般都具有一部分成员函数，或者称为对象的方法。在这里我们也可以这样做。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Person</span>(<span class="params">name: <span class="built_in">str</span>, age: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">self</span>():</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">to_string</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;Person(name = <span class="subst">&#123;name&#125;</span>, age = <span class="subst">&#123;age&#125;</span>)&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_name</span>():</span><br><span class="line">        <span class="keyword">return</span> name</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_age</span>():</span><br><span class="line">        <span class="keyword">return</span> age</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">set_age</span>(<span class="params">new_age: <span class="built_in">int</span></span>):</span><br><span class="line">        <span class="keyword">nonlocal</span> age</span><br><span class="line">        age = new_age</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">set_name</span>(<span class="params">new_name: <span class="built_in">str</span></span>):</span><br><span class="line">        <span class="keyword">nonlocal</span> name</span><br><span class="line">        name = new_name</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">self</span>.to_string = to_string</span><br><span class="line">    <span class="variable language_">self</span>.get_name = get_name</span><br><span class="line">    <span class="variable language_">self</span>.get_age = get_age</span><br><span class="line">    <span class="variable language_">self</span>.set_name = set_name</span><br><span class="line">    <span class="variable language_">self</span>.set_age = set_age</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span></span><br></pre></td></tr></table></figure>
+<p>首先，我们不使用<code>this</code>而改为<code>self</code>，这符合我们在Python中一贯的使用习惯。同时，我们声明一系列的方法，包括<code>set_name</code>、<code>get_name</code>等。为了便于调用，我们将这些方法的函数对象绑定到<code>self</code>上，这样，我们就可以使用<code>person.get_name()</code>来进行调用了。简单使用一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p1 = Person(<span class="string">&quot;John&quot;</span>, <span class="number">30</span>)</span><br><span class="line"><span class="built_in">print</span>(p1.to_string())</span><br><span class="line"><span class="built_in">print</span>(p1.get_name())</span><br><span class="line"><span class="built_in">print</span>(p1.get_age())</span><br><span class="line">p1.set_name(<span class="string">&quot;Alice&quot;</span>)</span><br><span class="line">p1.set_age(<span class="number">25</span>)</span><br><span class="line"><span class="built_in">print</span>(p1.to_string())</span><br></pre></td></tr></table></figure>
+<p>其结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Person(name = John, age = 30)</span><br><span class="line">John</span><br><span class="line">30</span><br><span class="line">Person(name = Alice, age = 25)</span><br></pre></td></tr></table></figure>
+<p>哦吼！初具雏形。这还需要<code>class</code>关键字干嘛？想到这里，我端起电脑旁的盐汽水，微微抿了一口。 <psw>（至于为什么只是抿了一口，那当然是因为优雅）</psw>这时，一个声音在我耳畔响起：</p>
+<p>“你这算什么？不能继承的类也能叫类？”</p>
+<p>“你再骂！”</p>
+<p>话虽这么说，但是没有继承的类就像没有醋的饺子，总是缺少了一点灵魂的。</p>
+<h3 id="第三步灵魂继承浇给"><a class="markdownIt-Anchor" href="#第三步灵魂继承浇给"></a> 第三步！灵魂继承，浇给</h3>
+<p>我们先拿到两个类：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Animal</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">    <span class="variable language_">self</span>.name = kwargs.get(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Unknown&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">to_string</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;Animal(name = <span class="subst">&#123;self.name&#125;</span>)&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">self</span>.to_string = to_string</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Dog</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">    <span class="variable language_">self</span>.age = kwargs.get(<span class="string">&quot;age&quot;</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">to_string</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;Dog(name = <span class="subst">&#123;self.name&#125;</span>, age = <span class="subst">&#123;self.age&#125;</span>)&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">self</span>.to_string = to_string</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span></span><br></pre></td></tr></table></figure>
+<p>这两个类都符合我们定义的最基础的类，这里就不多解释了。至于我们为何需要格外加一个<code>self</code>的形参，其在继承中将会起到一个重要的作用。这个例子中，<code>Dog</code>类需要继承<code>Animal</code>类，包括父类的成员变量和成员函数。因此，我们需要对Dog类进行改写。</p>
+<p>一种显然的方法是修改<code>Dog</code>类的内部逻辑，使之接受到<code>self</code>形参对应的<code>Animal</code>实例后，依次继承其中的成员变量和成员函数。但这种做法太过臃肿了：如果我们还需要定义一个<code>Cat</code>类，我们是不是也要这要修改<code>Cat</code>类内部呢？这两部分代码是不是几乎一模一样呢？如果我们修改了基类<code>Animal</code>的成员变量，那么我们是不是要修改所有继承自<code>Animal</code>类的类定义呢？</p>
+<p>好在，Python中的<strong>装饰器</strong>能够帮我们进行这部分的代码复用。我们使用<code>@extend()</code>装饰器来表达<strong>继承</strong>这类关系，因此上述类定义可以改写成：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@extend(<span class="params"><span class="literal">None</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Animal</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">    <span class="variable language_">self</span>.name = kwargs.get(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Unknown&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">to_string</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;Animal(name = <span class="subst">&#123;self.name&#125;</span>)&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">self</span>.to_string = to_string</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@extend(<span class="params">Animal</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Dog</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">    <span class="variable language_">self</span>.age = kwargs.get(<span class="string">&quot;age&quot;</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">to_string</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;Dog(name = <span class="subst">&#123;self.name&#125;</span>, age = <span class="subst">&#123;self.age&#125;</span>)&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">self</span>.to_string = to_string</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span></span><br></pre></td></tr></table></figure>
+<p>其中，<code>@extend(None)</code>表示其为基类，不要继承任何类。因此剩下来的工作就是完成<code>@extend</code>的逻辑。</p>
+<h3 id="完成装饰器生成器extend"><a class="markdownIt-Anchor" href="#完成装饰器生成器extend"></a> 完成装饰器生成器<code>extend</code></h3>
+<p>可以看到，<code>@extend(None)</code>和<code>@extend(Animal)</code>才是装饰器，因此<code>extend</code>只是一个<strong>装饰器生成器</strong>而已，其应该返回一个装饰器。我们先搭建出大致框架：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">extend</span>(<span class="params">super_cls</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decorator</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> decorator</span><br></pre></td></tr></table></figure>
+<p>装饰器<code>decorator</code>的参数是子类<code>cls</code>，返回值应该是被装饰过后的子类，其也是一个类，因此我们继续完善上述代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">extend</span>(<span class="params">super_cls</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decorator</span>(<span class="params">cls</span>):</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">decorated_cls</span>():</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> decorated_cls</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> decorator</span><br></pre></td></tr></table></figure>
+<p>首先，我们需要确定被装饰子类<code>decorated_cls</code>的形参列表。在面向对象编程中，我们初始化子类并不需要传入父类实例，因此，<code>self</code>肯定是多余的形参。因此我们能够确定，返回的被装饰子类形参列表必然不存在<code>self</code>，即<code>decorated_cls(*args, **kwargs)</code>。</p>
+<p>那么接下来的逻辑是，我们如何处理原本定义中的<code>self</code>形参？显然，这依赖于该类所继承的父类。如果该类本身没有父类（即基类），那么<code>self</code>显然是空对象；反之，<code>self</code>对应的就是使用参数列表所初始化的父类对象。完成上述逻辑即：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">extend</span>(<span class="params">super_cls</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decorator</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">decorated_cls</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">            <span class="comment"># 对应基类情况</span></span><br><span class="line">            <span class="keyword">if</span> super_cls <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> cls(<span class="keyword">lambda</span>: ..., *args, **kwargs)</span><br><span class="line">            <span class="comment"># 对应子类情况</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                super_obj = super_cls(*args, **kwargs)</span><br><span class="line">                <span class="keyword">return</span> cls(super_obj, *args, **kwargs)</span><br><span class="line">            </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> decorated_cls</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br></pre></td></tr></table></figure>
+<p>因此，完整的定义即：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">extend</span>(<span class="params">super_cls</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decorator</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">decorated_cls</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">            <span class="keyword">if</span> super_cls <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> cls(<span class="keyword">lambda</span>: ..., *args, **kwargs)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                super_obj = super_cls(*args, **kwargs)</span><br><span class="line">                <span class="keyword">return</span> cls(super_obj, *args, **kwargs)</span><br><span class="line">            </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> decorated_cls</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@extend(<span class="params"><span class="literal">None</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Animal</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">    <span class="variable language_">self</span>.name = kwargs.get(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Unknown&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">to_string</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;Animal(name = <span class="subst">&#123;self.name&#125;</span>)&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">self</span>.to_string = to_string</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@extend(<span class="params">Animal</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Dog</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">    <span class="variable language_">self</span>.age = kwargs.get(<span class="string">&quot;age&quot;</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">to_string</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;Dog(name = <span class="subst">&#123;self.name&#125;</span>, age = <span class="subst">&#123;self.age&#125;</span>)&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">self</span>.to_string = to_string</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span></span><br></pre></td></tr></table></figure>
+<p>我们测试一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dog = Dog(name=<span class="string">&quot;Buddy&quot;</span>, age=<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(dog.to_string())</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dog(name = Buddy, age = 5)</span><br></pre></td></tr></table></figure>
+<p>“嗨，不过如此嘛。”又喝了一口剩下的盐汽水，我长舒一口气。</p>
+<p>“哼哼，你以为就结束了？”</p>
+<p>“不然呢？这个闭包模拟类行为简直是天才想法！”</p>
+<p>“真的吗？”突然，我的眼前出现了这么一行代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@extend(<span class="params">Animal, Runner</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Dog</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>“我要你做出来多继承！！！”4</p>
+<p>“啊？？”</p>
+<h3 id="第四步多继承启动"><a class="markdownIt-Anchor" href="#第四步多继承启动"></a> 第四步！多继承，启动！</h3>
+<p>理解上述单继承后，多继承的逻辑只需要在<code>extend</code>中修改即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">extend</span>(<span class="params">*super_cls_list</span>):    <span class="comment"># 此时传入的是一个父类列表</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decorator</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">decorated_cls</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">            <span class="comment"># 对应基类情况(基类情况变更为：父类列表长度为零)</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(super_cls_list) == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> cls(<span class="keyword">lambda</span>: ..., *args, **kwargs)</span><br><span class="line">            <span class="comment"># 对应子类情况</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 依次利用参数列表初始化父类，然后将父类的属性绑定到子类super_obj上</span></span><br><span class="line">                super_obj = <span class="keyword">lambda</span>: ...</span><br><span class="line">                <span class="keyword">for</span> super_cls <span class="keyword">in</span> super_cls_list:</span><br><span class="line">                    cur_obj = super_cls(*args, **kwargs)</span><br><span class="line">                    <span class="keyword">for</span> k,v <span class="keyword">in</span> cur_obj.__dict__.items():</span><br><span class="line">                        <span class="keyword">if</span> <span class="keyword">not</span> k.startswith(<span class="string">&quot;__&quot;</span>):</span><br><span class="line">                            <span class="built_in">setattr</span>(super_obj, k, v)</span><br><span class="line">                <span class="comment"># 最后利用super_obj初始化self</span></span><br><span class="line">                <span class="keyword">return</span> cls(super_obj, *args, **kwargs)</span><br><span class="line">            </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> decorated_cls</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br></pre></td></tr></table></figure>
+<div class="tag-plugin colorful note" color="blue"><div class="title">注意</div><div class="body"><p>此时需要对<code>extend</code>用法稍作修改：对于基类，不再需要传入<code>None</code>；对于子类，需要传入父类列表而不是以逗号隔开的多个参数</p></div></div>
+<p>完整代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">extend</span>(<span class="params">*super_cls_list</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decorator</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">decorated_cls</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(super_cls_list) == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> cls(<span class="keyword">lambda</span>: ..., *args, **kwargs)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                super_obj = <span class="keyword">lambda</span>: ...</span><br><span class="line">                <span class="keyword">for</span> super_cls <span class="keyword">in</span> super_cls_list:</span><br><span class="line">                    temp_obj = super_cls(*args, **kwargs)</span><br><span class="line">                    <span class="keyword">for</span> k,v <span class="keyword">in</span> temp_obj.__dict__.items():</span><br><span class="line">                        <span class="keyword">if</span> <span class="keyword">not</span> k.startswith(<span class="string">&quot;__&quot;</span>):</span><br><span class="line">                            <span class="built_in">setattr</span>(super_obj, k, v)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> cls(super_obj, *args, **kwargs)</span><br><span class="line">            </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> decorated_cls</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@extend()</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Animal</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">    <span class="variable language_">self</span>.name = kwargs.get(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Unknown&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">to_string</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;Animal(name = <span class="subst">&#123;self.name&#125;</span>)&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">self</span>.to_string = to_string</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@extend()</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Runner</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">    <span class="variable language_">self</span>.speed = kwargs.get(<span class="string">&quot;speed&quot;</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">to_string</span>():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;self.name&#125;</span> is running with speed <span class="subst">&#123;self.speed&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">self</span>.to_string = to_string</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@extend(<span class="params">*[Animal, Runner]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Dog</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line">    <span class="variable language_">self</span>.age = kwargs.get(<span class="string">&quot;age&quot;</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">to_string</span>():</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;Dog(name = <span class="subst">&#123;self.name&#125;</span>, age = <span class="subst">&#123;self.age&#125;</span>, speed = <span class="subst">&#123;self.speed&#125;</span>)&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">self</span>.to_string = to_string</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span></span><br></pre></td></tr></table></figure>
+<p>试验一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dog = Dog(name=<span class="string">&quot;Buddy&quot;</span>, age=<span class="number">5</span>, speed=<span class="number">20</span>)</span><br><span class="line"><span class="built_in">print</span>(dog.to_string())</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dog(name = Buddy, age = 5, speed = 20)</span><br></pre></td></tr></table></figure>
+<h2 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h2>
+<p>“小小的<code>class</code>关键字，居然要考虑这么多。”忙活了这么久，终于可以喝完这瓶盐汽水了。</p>
+<p>“不对啊，这盐汽水喝不完啊！”</p>
+<p>突然，梦醒了。一如既往地打开电脑和VSCode，输入<code>class</code>关键字。</p>
+<p>“好像？都是一场梦？”</p>
+<p>“哈哈哈哈，”古怪的声音再次响起，“但你学会了不少新东西，不是吗？”这声音又一次离去了，只不过这次再未出现过。</p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://blog.snowflake.zone/posts/21/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.snowflake.zone/posts/21/&title=【整活向】一觉起来，Python的class关键字不见了？？？ - Felix Chen&summary=“欸？为什么我的编辑器给我的class标红了啊？？？”
+“你不知道吗？Python的新版本移除了class关键字啊？”
+“啊？？？”"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://blog.snowflake.zone/posts/21/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/20/">后量子加密算法系列预告</a></div></section></div>
+
+<div class="related-wrap" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>猜你喜欢</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="/posts/5/" title="Python学习笔记：列表和字典"><span class="title">Python学习笔记：列表和字典</span><span class="excerpt">Python中的列表和字典</span></a><a class="item" href="/posts/11/" title="快速生成requirements.txt"><span class="title">快速生成requirements.txt</span><span class="excerpt">两行命令快速生成项目的requirements.txt！</span></a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body twikoo'>
+      
+
+<div id="twikoo_container"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">更多</span><a target="_blank" rel="noopener" href="https://github.com/glimmeringlight/">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">Felix Chen</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br />
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E6%97%A9%E6%99%A8"><span class="toc-text"> 一个早晨</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E8%A1%8C%E4%BD%A0%E8%BF%98%E6%88%91class"><span class="toc-text"> 不行！你还我class！</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E6%A8%A1%E6%8B%9F%E7%B1%BB%E7%9A%84%E8%A1%8C%E4%B8%BA"><span class="toc-text"> 第一步！模拟类的行为</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E9%80%A0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%B1%BB"><span class="toc-text"> 第二步！造一个简单的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E7%81%B5%E9%AD%82%E7%BB%A7%E6%89%BF%E6%B5%87%E7%BB%99"><span class="toc-text"> 第三步！灵魂继承，浇给</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E8%A3%85%E9%A5%B0%E5%99%A8%E7%94%9F%E6%88%90%E5%99%A8extend"><span class="toc-text"> 完成装饰器生成器extend</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E5%A4%9A%E7%BB%A7%E6%89%BF%E5%90%AF%E5%8A%A8"><span class="toc-text"> 第四步！多继承，启动！</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-text"> 后记</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js`,
+    marked: `https://cdn.jsdelivr.net/npm/marked@13.0.1/lib/marked.umd.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.getElementById('twikoo_container');
+  util.viewportLazyload(el, load_twikoo, false);
+
+  function load_twikoo() {
+    if (!el) return;
+    utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js', {defer: true}).then(function () {
+      const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+      twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js","envId":"https://twikoo.snowflake.zone/"}, {
+        el: '#twikoo_container',
+        path: path,
+      }));
+    });
+  }
+</script>
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css`,
+    js: `https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+- <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+- <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
