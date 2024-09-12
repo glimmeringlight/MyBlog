@@ -6,7 +6,7 @@
   <link href="https://blog.snowflake.zone/friends/atom.xml" rel="self"/>
   
   <link href="https://blog.snowflake.zone/"/>
-  <updated>2024-09-01T10:51:09.803Z</updated>
+  <updated>2024-09-12T11:42:42.466Z</updated>
   <id>https://blog.snowflake.zone/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【leetcode题解】30.串联所有单词的子串</title>
+    <link href="https://blog.snowflake.zone/posts/23/"/>
+    <id>https://blog.snowflake.zone/posts/23/</id>
+    <published>2024-09-12T11:05:50.000Z</published>
+    <updated>2024-09-12T11:42:42.466Z</updated>
+    
+    
+    <summary type="html">leetcode30.串联所有单词的子串 题解</summary>
+    
+    
+    
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="算法" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://blog.snowflake.zone/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="滑动窗口" scheme="https://blog.snowflake.zone/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"/>
+    
+    <category term="leetcode" scheme="https://blog.snowflake.zone/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【游戏简评】重走西游路：《黑神话：悟空》</title>
     <link href="https://blog.snowflake.zone/posts/22/"/>
     <id>https://blog.snowflake.zone/posts/22/</id>
     <published>2024-08-30T15:02:43.000Z</published>
-    <updated>2024-09-01T10:51:09.803Z</updated>
+    <updated>2024-09-12T11:42:42.466Z</updated>
     
     
       
@@ -34,7 +59,9 @@
     
     
     
-    <category term="游戏" scheme="https://blog.snowflake.zone/categories/%E6%B8%B8%E6%88%8F/"/>
+    <category term="娱乐" scheme="https://blog.snowflake.zone/categories/%E5%A8%B1%E4%B9%90/"/>
+    
+    <category term="游戏简评" scheme="https://blog.snowflake.zone/categories/%E5%A8%B1%E4%B9%90/%E6%B8%B8%E6%88%8F%E7%AE%80%E8%AF%84/"/>
     
     
     <category term="游戏" scheme="https://blog.snowflake.zone/tags/%E6%B8%B8%E6%88%8F/"/>
@@ -48,7 +75,7 @@
     <link href="https://blog.snowflake.zone/posts/21/"/>
     <id>https://blog.snowflake.zone/posts/21/</id>
     <published>2024-08-04T05:49:29.000Z</published>
-    <updated>2024-09-01T10:51:09.803Z</updated>
+    <updated>2024-09-12T11:42:42.466Z</updated>
     
     
     <summary type="html">&lt;p&gt;“欸？为什么我的编辑器给我的&lt;code&gt;class&lt;/code&gt;标红了啊？？？”&lt;/p&gt;
@@ -57,7 +84,9 @@
     
     
     
-    <category term="Python" scheme="https://blog.snowflake.zone/categories/Python/"/>
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="语言" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AF%AD%E8%A8%80/"/>
     
     
     <category term="Python" scheme="https://blog.snowflake.zone/tags/Python/"/>
@@ -71,14 +100,16 @@
     <link href="https://blog.snowflake.zone/posts/20/"/>
     <id>https://blog.snowflake.zone/posts/20/</id>
     <published>2024-03-30T13:37:31.000Z</published>
-    <updated>2024-09-01T10:51:09.803Z</updated>
+    <updated>2024-09-12T11:42:42.466Z</updated>
     
     
     <summary type="html">&lt;p&gt;听到“后量子加密算法”这个标题，许多人可能会产生许多疑惑：这和量子计算机有什么关系？后量子加密算法包含哪些内容？本系列将阐述密码学的前沿研究方向：后量子密码学。&lt;/p&gt;</summary>
     
     
     
-    <category term="后量子加密算法系列" scheme="https://blog.snowflake.zone/categories/%E5%90%8E%E9%87%8F%E5%AD%90%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97/"/>
+    <category term="安全" scheme="https://blog.snowflake.zone/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="密码学" scheme="https://blog.snowflake.zone/categories/%E5%AE%89%E5%85%A8/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
     
     <category term="密码学" scheme="https://blog.snowflake.zone/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
@@ -99,7 +130,9 @@
     
     
     
-    <category term="游戏" scheme="https://blog.snowflake.zone/categories/%E6%B8%B8%E6%88%8F/"/>
+    <category term="娱乐" scheme="https://blog.snowflake.zone/categories/%E5%A8%B1%E4%B9%90/"/>
+    
+    <category term="游戏简评" scheme="https://blog.snowflake.zone/categories/%E5%A8%B1%E4%B9%90/%E6%B8%B8%E6%88%8F%E7%AE%80%E8%AF%84/"/>
     
     
     <category term="游戏" scheme="https://blog.snowflake.zone/tags/%E6%B8%B8%E6%88%8F/"/>
@@ -120,7 +153,9 @@
     
     
     
-    <category term="Web安全" scheme="https://blog.snowflake.zone/categories/Web%E5%AE%89%E5%85%A8/"/>
+    <category term="安全" scheme="https://blog.snowflake.zone/categories/%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="Web" scheme="https://blog.snowflake.zone/categories/%E5%AE%89%E5%85%A8/Web/"/>
     
     
     <category term="Web安全" scheme="https://blog.snowflake.zone/tags/Web%E5%AE%89%E5%85%A8/"/>
@@ -183,7 +218,7 @@
     
     
     
-    <category term="碎碎念" scheme="https://blog.snowflake.zone/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    <category term="杂谈" scheme="https://blog.snowflake.zone/categories/%E6%9D%82%E8%B0%88/"/>
     
     
     <category term="碎碎念" scheme="https://blog.snowflake.zone/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
@@ -202,7 +237,9 @@
     
     
     
-    <category term="写码经历" scheme="https://blog.snowflake.zone/categories/%E5%86%99%E7%A0%81%E7%BB%8F%E5%8E%86/"/>
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="框架" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E6%A1%86%E6%9E%B6/"/>
     
     
     <category term="css" scheme="https://blog.snowflake.zone/tags/css/"/>
@@ -221,7 +258,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="框架" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E6%A1%86%E6%9E%B6/"/>
     
     
     <category term="django" scheme="https://blog.snowflake.zone/tags/django/"/>
@@ -244,7 +283,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="框架" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E6%A1%86%E6%9E%B6/"/>
     
     
     <category term="django" scheme="https://blog.snowflake.zone/tags/django/"/>
@@ -265,7 +306,9 @@
     
     
     
-    <category term="Python" scheme="https://blog.snowflake.zone/categories/Python/"/>
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="语言" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AF%AD%E8%A8%80/"/>
     
     
     <category term="Python" scheme="https://blog.snowflake.zone/tags/Python/"/>
@@ -284,7 +327,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="框架" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E6%A1%86%E6%9E%B6/"/>
     
     
     <category term="django" scheme="https://blog.snowflake.zone/tags/django/"/>
@@ -305,7 +350,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="框架" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E6%A1%86%E6%9E%B6/"/>
     
     
     <category term="django" scheme="https://blog.snowflake.zone/tags/django/"/>
@@ -326,7 +373,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="框架" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E6%A1%86%E6%9E%B6/"/>
     
     
     <category term="django" scheme="https://blog.snowflake.zone/tags/django/"/>
@@ -347,7 +396,9 @@
     
     
     
-    <category term="游戏" scheme="https://blog.snowflake.zone/categories/%E6%B8%B8%E6%88%8F/"/>
+    <category term="娱乐" scheme="https://blog.snowflake.zone/categories/%E5%A8%B1%E4%B9%90/"/>
+    
+    <category term="游戏简评" scheme="https://blog.snowflake.zone/categories/%E5%A8%B1%E4%B9%90/%E6%B8%B8%E6%88%8F%E7%AE%80%E8%AF%84/"/>
     
     
     <category term="游戏" scheme="https://blog.snowflake.zone/tags/%E6%B8%B8%E6%88%8F/"/>
@@ -368,7 +419,7 @@
     
     
     
-    <category term="碎碎念" scheme="https://blog.snowflake.zone/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    <category term="杂谈" scheme="https://blog.snowflake.zone/categories/%E6%9D%82%E8%B0%88/"/>
     
     
     <category term="碎碎念" scheme="https://blog.snowflake.zone/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
@@ -387,7 +438,9 @@
     
     
     
-    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="语言" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AF%AD%E8%A8%80/"/>
     
     
     <category term="Python" scheme="https://blog.snowflake.zone/tags/Python/"/>
@@ -406,29 +459,12 @@
     
     
     
-    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="算法" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E7%AE%97%E6%B3%95/"/>
     
     
     <category term="数据结构" scheme="https://blog.snowflake.zone/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DES加密算法</title>
-    <link href="https://blog.snowflake.zone/posts/3/"/>
-    <id>https://blog.snowflake.zone/posts/3/</id>
-    <published>2022-05-18T02:58:16.000Z</published>
-    <updated>2022-05-18T02:58:16.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;DES加密算法是目前使用最广泛的对称加密算法。它体现了对称加密算法中最经典的Feistel结构。尽管DES加密算法注定要为新的加密标准让出位置，但依旧是我们深入理解对称加密的最好的例子。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://blog.snowflake.zone/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="密码学" scheme="https://blog.snowflake.zone/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
   </entry>
   
