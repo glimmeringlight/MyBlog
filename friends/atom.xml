@@ -6,7 +6,7 @@
   <link href="https://blog.snowflake.zone/friends/atom.xml" rel="self"/>
   
   <link href="https://blog.snowflake.zone/"/>
-  <updated>2024-09-12T14:13:13.355Z</updated>
+  <updated>2024-09-16T09:07:30.207Z</updated>
   <id>https://blog.snowflake.zone/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>AC自动机原理与实现</title>
+    <link href="https://blog.snowflake.zone/posts/24/"/>
+    <id>https://blog.snowflake.zone/posts/24/</id>
+    <published>2024-09-15T05:06:07.000Z</published>
+    <updated>2024-09-16T09:07:30.207Z</updated>
+    
+    
+    <summary type="html">模式匹配算法：AC自动机</summary>
+    
+    
+    
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="算法" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://blog.snowflake.zone/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="leetcode" scheme="https://blog.snowflake.zone/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【leetcode题解】30.串联所有单词的子串</title>
     <link href="https://blog.snowflake.zone/posts/23/"/>
     <id>https://blog.snowflake.zone/posts/23/</id>
     <published>2024-09-12T11:05:50.000Z</published>
-    <updated>2024-09-12T14:13:13.355Z</updated>
+    <updated>2024-09-16T09:07:30.207Z</updated>
     
     
     <summary type="html">leetcode30.串联所有单词的子串 题解</summary>
@@ -46,7 +69,7 @@
     <link href="https://blog.snowflake.zone/posts/22/"/>
     <id>https://blog.snowflake.zone/posts/22/</id>
     <published>2024-08-30T15:02:43.000Z</published>
-    <updated>2024-09-12T14:13:13.355Z</updated>
+    <updated>2024-09-16T09:07:30.207Z</updated>
     
     
       
@@ -75,7 +98,7 @@
     <link href="https://blog.snowflake.zone/posts/21/"/>
     <id>https://blog.snowflake.zone/posts/21/</id>
     <published>2024-08-04T05:49:29.000Z</published>
-    <updated>2024-09-12T14:13:13.355Z</updated>
+    <updated>2024-09-16T09:07:30.207Z</updated>
     
     
     <summary type="html">&lt;p&gt;“欸？为什么我的编辑器给我的&lt;code&gt;class&lt;/code&gt;标红了啊？？？”&lt;/p&gt;
@@ -100,7 +123,7 @@
     <link href="https://blog.snowflake.zone/posts/20/"/>
     <id>https://blog.snowflake.zone/posts/20/</id>
     <published>2024-03-30T13:37:31.000Z</published>
-    <updated>2024-09-12T14:13:13.355Z</updated>
+    <updated>2024-09-16T09:07:30.207Z</updated>
     
     
     <summary type="html">&lt;p&gt;听到“后量子加密算法”这个标题，许多人可能会产生许多疑惑：这和量子计算机有什么关系？后量子加密算法包含哪些内容？本系列将阐述密码学的前沿研究方向：后量子密码学。&lt;/p&gt;</summary>
@@ -444,27 +467,6 @@
     
     
     <category term="Python" scheme="https://blog.snowflake.zone/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据结构试题分析</title>
-    <link href="https://blog.snowflake.zone/posts/4/"/>
-    <id>https://blog.snowflake.zone/posts/4/</id>
-    <published>2022-05-28T13:26:28.000Z</published>
-    <updated>2022-05-28T13:26:28.000Z</updated>
-    
-    
-    <summary type="html">本文选择了数据结构的一些考题，给出了完整的代码实现。</summary>
-    
-    
-    
-    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    <category term="算法" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="数据结构" scheme="https://blog.snowflake.zone/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
