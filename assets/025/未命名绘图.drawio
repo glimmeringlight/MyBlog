@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" version="24.7.14">
+  <diagram name="第 1 页" id="Uvt-CRlxvbFifo9PpNjs">
+    <mxGraphModel dx="1166" dy="629" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Fue3ma4edRX_5pCngTyd-1" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="192" y="127" width="807" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-2" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="293" y="150" width="439" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-3" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="293" y="348" width="439" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-4" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="823" y="396" width="147" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-5" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;线程组&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="760" y="168.5" width="149" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-6" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;任务队列&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="167" y="366.5" width="149" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-7" value="Thread" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="328" y="159" width="38" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-13" value="Thread" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="159" width="38" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-14" value="Thread" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="466" y="159" width="38" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-15" value="Thread" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="531" y="159" width="38" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-20" value="" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=1;aspect=fixed;image=img/clipart/Gear_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="374" y="355.5" width="52" height="61" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-21" value="" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=1;aspect=fixed;image=img/clipart/Gear_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="308" y="359" width="52" height="61" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-22" value="" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=1;aspect=fixed;image=img/clipart/Gear_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="445" y="355.5" width="52" height="61" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-23" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;对外接口&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="826" y="416.5" width="149" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-24" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=1.008;entryY=0.86;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="823" y="400.64" as="sourcePoint" />
+            <mxPoint x="735.512" y="399.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-25" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="353" y="231.5" as="sourcePoint" />
+            <mxPoint x="355" y="355.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Fue3ma4edRX_5pCngTyd-26" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;获取任务&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="335" y="266" width="149" height="39" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
