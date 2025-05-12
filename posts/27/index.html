@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1" theme-name="Stellar" theme-version="1.29.1">
-  <meta name="robots" content="noindex,follow">
+  
   <meta name="generator" content="Hexo 7.3.0">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   
@@ -17,20 +17,28 @@
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
   
-  <title>标签：websocket - Felix Chen</title>
+  <title>C++条件变量(Conditional Variable) - Felix Chen</title>
 
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Felix Chen">
-<meta property="og:url" content="https://blog.snowflake.zone/tags/websocket/index.html">
+    <meta name="description" content="C++的条件变量提供了一种线程同步的方法，本文简要对其进行介绍。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++条件变量(Conditional Variable)">
+<meta property="og:url" content="https://blog.snowflake.zone/posts/27/index.html">
 <meta property="og:site_name" content="Felix Chen">
+<meta property="og:description" content="C++的条件变量提供了一种线程同步的方法，本文简要对其进行介绍。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.snowflake.zone/assets/027/27-1.png">
+<meta property="article:published_time" content="2025-05-12T00:56:23.000Z">
+<meta property="article:modified_time" content="2025-05-12T00:56:23.000Z">
 <meta property="article:author" content="Felix Chen">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="条件变量">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.snowflake.zone/assets/027/27-1.png">
   
   
   
-  
+  <meta name="keywords" content="C++,条件变量">
 
   <!-- feed -->
   
@@ -49,7 +57,7 @@
 </head>
 <body>
 
-<div class="l_body s:aa index tech" id="start" layout="undefined" ><aside class="l_left"><div class="leftbar-container">
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
 
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/assets/profile.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Felix Chen</div><div class="sub normal cap">所见一切皆是奇迹</div><div class="sub hover cap" style="opacity:0"> 文字2</div></a></div></header>
@@ -61,32 +69,145 @@
 <nav class="menu dis-select"><a class="nav-item active" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item" title="社交" href="/friends/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m13.629 20.472l-.542.916c-.483.816-1.69.816-2.174 0l-.542-.916c-.42-.71-.63-1.066-.968-1.262c-.338-.197-.763-.204-1.613-.219c-1.256-.021-2.043-.098-2.703-.372a5 5 0 0 1-2.706-2.706C2 14.995 2 13.83 2 11.5v-1c0-3.273 0-4.91.737-6.112a5 5 0 0 1 1.65-1.651C5.59 2 7.228 2 10.5 2h3c3.273 0 4.91 0 6.113.737a5 5 0 0 1 1.65 1.65C22 5.59 22 7.228 22 10.5v1c0 2.33 0 3.495-.38 4.413a5 5 0 0 1-2.707 2.706c-.66.274-1.447.35-2.703.372c-.85.015-1.275.022-1.613.219c-.338.196-.548.551-.968 1.262" opacity=".5"/><path fill="currentColor" d="M10.99 14.308c-1.327-.978-3.49-2.84-3.49-4.593c0-2.677 2.475-3.677 4.5-1.609c2.025-2.068 4.5-1.068 4.5 1.609c0 1.752-2.163 3.615-3.49 4.593c-.454.335-.681.502-1.01.502c-.329 0-.556-.167-1.01-.502"/></svg></a><a class="nav-item" title="关于" href="/about/" style="color:#F44336"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><circle cx="12" cy="6" r="4" fill="currentColor"/><path fill="currentColor" d="M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5" opacity="0.5"/></svg></a></nav>
 </div>
 <div class="widgets">
-<widget class="widget-wrapper markdown"><div class="widget-header dis-select"><span class="name">欢迎</span></div><div class="widget-body fs14"><p>欢迎欢迎</p>
-</div></widget>
+
 
 <widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span><a class="cap-action" id="rss" title="Subscribe" href="/friends/atom.xml"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19q0-.825.588-1.412T5 17q.825 0 1.413.588T7 19q0 .825-.587 1.413T5 21m13.5 0q-.65 0-1.088-.475T16.9 19.4q-.275-2.425-1.312-4.537T12.9 11.1q-1.65-1.65-3.762-2.687T4.6 7.1q-.65-.075-1.125-.512T3 5.5q0-.65.45-1.062t1.075-.363q3.075.275 5.763 1.563t4.737 3.337q2.05 2.05 3.338 4.738t1.562 5.762q.05.625-.363 1.075T18.5 21m-6 0q-.625 0-1.075-.437T10.85 19.5q-.225-1.225-.787-2.262T8.65 15.35q-.85-.85-1.888-1.412T4.5 13.15q-.625-.125-1.062-.575T3 11.5q0-.65.45-1.075t1.075-.325q1.825.25 3.413 1.063t2.837 2.062q1.25 1.25 2.063 2.838t1.062 3.412q.1.625-.325 1.075T12.5 21"/></svg></a></div><div class="widget-body fs14"><a class="item title" href="/posts/27/"><span class="title">C++条件变量(Conditional Variable)</span></a><a class="item title" href="/posts/26/"><span class="title">并查集的C++实现</span></a><a class="item title" href="/posts/25/"><span class="title">C++ 手撕线程池</span></a><a class="item title" href="/posts/24/"><span class="title">AC自动机原理与实现</span></a><a class="item title" href="/posts/23/"><span class="title">【leetcode题解】30.串联所有单词的子串</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
 
-<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/assets/profile.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Felix Chen</div><div class="sub normal cap">所见一切皆是奇迹</div><div class="sub hover cap" style="opacity:0"> 文字2</div></a></div></header>
-
- 
 
 
 
 
-<div class="navbar top"><nav class="post"><a href="/">近期发布</a><a href="/categories">分类</a><a class="active" href="/tags">标签：websocket</a><a href="/topic">专栏</a><a href="/archives">归档</a></nav></div>
-<div class="post-list post"><a class="post-card post" href="/posts/13/">
-<article class="md-text"><div class="post-cover"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://blog.snowflake.zone/assets/013/cover.jpg"/></div><h2 class="post-title">在django中实现websocket</h2><div class="excerpt"><p>本文在 django 中实现 websocket 协议。</p></div><div class="meta cap"><span class="cap" id="post-meta"><svg style="margin-bottom:2px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972c.697-.67 1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724"/><path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828C4.343 22 6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172C22 19.658 22 17.772 22 14" opacity=".5"/><path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><time datetime="2022-08-02T16:00:00.000Z">2022-08-03</time></span><span class="cap breadcrumb"><svg style="margin-bottom:1px" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6.95c0-.883 0-1.324.07-1.692A4 4 0 0 1 5.257 2.07C5.626 2 6.068 2 6.95 2c.386 0 .58 0 .766.017a4 4 0 0 1 2.18.904c.144.119.28.255.554.529L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .848.352C14.098 6 14.675 6 15.828 6h.374c2.632 0 3.949 0 4.804.77c.079.07.154.145.224.224c.77.855.77 2.172.77 4.804V14c0 3.771 0 5.657-1.172 6.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14z" opacity=".5"/><path fill="currentColor" d="M20 6.238c0-.298-.005-.475-.025-.63a3 3 0 0 0-2.583-2.582C17.197 3 16.965 3 16.5 3H9.988c.116.104.247.234.462.45L11 4c.816.816 1.224 1.224 1.712 1.495a4 4 0 0 0 .849.352C14.098 6 14.675 6 15.829 6h.373c1.78 0 2.957 0 3.798.238"/><path fill="currentColor" fill-rule="evenodd" d="M12.25 10a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg><span>程序设计</span></span></div></article>
-</a></div>
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">程序设计</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AF%AD%E8%A8%80/">语言</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-05-12T00:56:23.000Z">2025-05-12</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-05-12T00:56:23.000Z">2025-05-12</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>C++条件变量(Conditional Variable)</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
+<p>C++中的条件变量(Conditional Variable)是一种特殊的变量，常用于线程之间的同步。在涉及到诸如：线程因某种原因需要被阻塞，待其满足某些条件时，另一个线程会将该线程唤醒这类应用场景下，条件变量提供了一种优雅的解决方式。</p>
+<p>通常，条件变量与锁一同使用，防止数据竞争。</p>
+<h2 id="使用流程"><a class="markdownIt-Anchor" href="#使用流程"></a> 使用流程</h2>
+<p>如图所示为条件变量的一般使用情景。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/027/27-1.png" alt="条件变量应用情景" data-fancybox="true"/></div><div class="image-meta"><span class="image-caption center">条件变量应用情景</span></div></div>
+<p>在此场景下，待唤醒线程一般处于等待状态，等待满足某些特定条件后被其它线程唤醒；唤醒线程则处理其它功能，并在条件满足的情况下唤醒待唤醒线程。<code>conditional_variable</code>完成了上述通知的功能；<code>shared_data</code>则是不同线程之间的共享缓存区，用于数据共享；<code>mutex</code>则是锁，用于保护<code>conditional_variable</code>和<code>shared_data</code>之间的数据同步。</p>
+<h2 id="代码接口"><a class="markdownIt-Anchor" href="#代码接口"></a> 代码接口</h2>
+<p>条件变量位于标准库<code>&lt;conditional_variable&gt;</code>中，首先需要包含该头文件。头文件中提供了一系列接口，主要分为两个功能：<strong>等待</strong>和<strong>通知</strong>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>函数名称</strong></th>
+<th style="text-align:center"><strong>函数功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">wait</td>
+<td style="text-align:center">阻塞该线程并等待唤醒</td>
+</tr>
+<tr>
+<td style="text-align:center">wait_for</td>
+<td style="text-align:center">阻塞该线程并等待，或者超时</td>
+</tr>
+<tr>
+<td style="text-align:center">wait_until</td>
+<td style="text-align:center">阻塞该线程并等待，或者到达某一时间点</td>
+</tr>
+<tr>
+<td style="text-align:center">notify_one</td>
+<td style="text-align:center">唤醒一个线程</td>
+</tr>
+<tr>
+<td style="text-align:center">notify_all</td>
+<td style="text-align:center">唤醒所有线程</td>
+</tr>
+</tbody>
+</table>
+<h3 id="等待函数wait"><a class="markdownIt-Anchor" href="#等待函数wait"></a> 等待函数<code>wait()</code></h3>
+<p>函数<code>wait</code>的其中一个函数签名如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">wait</span>(unique_lock&lt;mutex&gt;&amp; __lock);</span><br></pre></td></tr></table></figure>
+<p>其中，<code>__lock</code>是需要获取的锁。在调用<code>wait()</code>前，当前线程必须已经竞争获得锁，而后进入<code>wait()</code>。<code>wait()</code>函数中，会主动释放当前线程获得的锁，并进入阻塞状态；当其它线程获得锁并调用<code>notify_one()</code>或<code>notify_any()</code>进行线程唤醒时，当前线程则会退出阻塞状态，并重新试图获取锁。</p>
+<h3 id="丢失唤醒和虚假唤醒"><a class="markdownIt-Anchor" href="#丢失唤醒和虚假唤醒"></a> 丢失唤醒和虚假唤醒</h3>
+<p>上述的<code>wait()</code>函数在实际使用中，可能会遇到<strong>丢失唤醒</strong>或者<strong>虚假唤醒</strong>的情况。所谓丢失唤醒，则是在其它线程发出<code>notify</code>时，该线程尚且没有进入等待的阻塞状态，当该线程进入阻塞状态时，已经错过了通知唤醒，进而导致死锁；所谓虚假唤醒，则是由于底层硬件和软件在处理大规模操作时产生的短暂性系统混乱，导致在未收到唤醒通知的情况下提前被唤醒。虚假唤醒的成因是多种多样的，但究其本质都离不开短时间内的内核调度或信号中断等现象，读者可以自行了解。</p>
+<p>为了防止上述情况的产生，<code>wait()</code>函数还有一个重载版本，其函数签名如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> _Predicate&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">wait</span><span class="params">(unique_lock&lt;mutex&gt;&amp; __lock, _Predicate __p)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>其中，<code>__p</code>是一个可调用对象，可以是仿函数，也可以是lambda表达式。其相当于一个阻塞条件，当不满足该条件时，当前线程才会被阻塞；反之，则会退出阻塞状态。上述<code>wait()</code>相当于如下的代码段：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(!__p())&#123;</span><br><span class="line">    <span class="built_in">wait</span>(__lock);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因此，如果存在丢失唤醒的情况，则<code>while</code>的判断首先不成立，线程也不会进入阻塞状态；如果存在虚假唤醒的情况，则满足<code>while</code>的循环条件，也就会再次进入阻塞状态。</p>
+<h3 id="唤醒函数"><a class="markdownIt-Anchor" href="#唤醒函数"></a> 唤醒函数</h3>
+<p><code>conditional_variable</code>中提供了两种唤醒函数，分别为<code>notify_one()</code>和<code>notify_all()</code>。两者的唯一区别在于前者是唤醒被当前条件变量阻塞的线程中的一个线程，而后者则是唤醒所有线程。若有多个线程被同一个条件变量阻塞，则<code>notify_one()</code>的唤醒是随机的，也即无法选择具体的唤醒线程。<code>notify</code>内部相当于获取了锁，而后唤醒对应线程，再释放锁。</p>
+<h2 id="条件变量的例子"><a class="markdownIt-Anchor" href="#条件变量的例子"></a> 条件变量的例子</h2>
+<p>条件变量通常可用于单一或多个生产者，多个消费者的场景。在这种场景下，如果生产者尚未产生足够的数据，则消费者可以进入阻塞状态，降低系统性能消耗；当生产者产生可供消费者消费的数据后，则可以使用条件变量唤醒消费者进行消费。线程池就是一个很好的例子。笔者曾实现过一个线程池，但该线程池没有阻塞功能，导致仅减少了新线程创建时的资源开销。</p>
+<p>后续的文章会基于条件变量实现一个基于阻塞队列的线程池。</p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://blog.snowflake.zone/posts/27/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.snowflake.zone/posts/27/&title=C++条件变量(Conditional Variable) - Felix Chen&summary=C++的条件变量提供了一种线程同步的方法，本文简要对其进行介绍。"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
+          <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://blog.snowflake.zone/posts/27/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/posts/26/">并查集的C++实现</a></div></section></div>
+
+<div class="related-wrap" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>猜你喜欢</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="/posts/25/" title="C++ 手撕线程池"><span class="title">C++ 手撕线程池</span><span class="excerpt">用C++实现一个线程池</span></a><a class="item" href="/posts/26/" title="并查集的C++实现"><span class="title">并查集的C++实现</span></a><a class="item" href="/posts/5/" title="Python学习笔记：列表和字典"><span class="title">Python学习笔记：列表和字典</span><span class="excerpt">Python中的列表和字典</span></a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body twikoo'>
+      
+
+<div id="twikoo_container"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+    </section>
+  </div>
+
 
 
 <footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">更多</span><a target="_blank" rel="noopener" href="https://github.com/glimmeringlight/">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">Felix Chen</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br />
 本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-</aside><div class='float-panel blur'>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text"> 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="toc-text"> 使用流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%8E%A5%E5%8F%A3"><span class="toc-text"> 代码接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%BE%85%E5%87%BD%E6%95%B0wait"><span class="toc-text"> 等待函数wait()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A2%E5%A4%B1%E5%94%A4%E9%86%92%E5%92%8C%E8%99%9A%E5%81%87%E5%94%A4%E9%86%92"><span class="toc-text"> 丢失唤醒和虚假唤醒</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%94%A4%E9%86%92%E5%87%BD%E6%95%B0"><span class="toc-text"> 唤醒函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text"> 条件变量的例子</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
@@ -408,6 +529,22 @@
 
 
 <!-- optional -->
+
+  <script type="module">
+  const el = document.getElementById('twikoo_container');
+  util.viewportLazyload(el, load_twikoo, false);
+
+  function load_twikoo() {
+    if (!el) return;
+    utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js', {defer: true}).then(function () {
+      const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+      twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js","envId":"https://twikoo.snowflake.zone/"}, {
+        el: '#twikoo_container',
+        path: path,
+      }));
+    });
+  }
+</script>
 
 
 

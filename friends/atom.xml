@@ -6,7 +6,7 @@
   <link href="https://blog.snowflake.zone/friends/atom.xml" rel="self"/>
   
   <link href="https://blog.snowflake.zone/"/>
-  <updated>2024-10-27T04:46:22.000Z</updated>
+  <updated>2025-05-12T00:56:23.000Z</updated>
   <id>https://blog.snowflake.zone/</id>
   <follow_challenge>
     <feedId>66144704683264000</feedId>
@@ -19,6 +19,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++条件变量(Conditional Variable)</title>
+    <link href="https://blog.snowflake.zone/posts/27/"/>
+    <id>https://blog.snowflake.zone/posts/27/</id>
+    <published>2025-05-12T00:56:23.000Z</published>
+    <updated>2025-05-12T00:56:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2><p>C++中的条件变量(Conditional Variable)是一种特殊的变量，常用于线程之间的同步。在涉及到诸如：线程因某种原因需要被阻塞，待其满足某些条件时，另一个线程会将该线程唤醒这类应用场景下，条件变量提供了一种优雅的解决方式。</p><p>通常，条件变量与锁一同使用，防止数据竞争。</p><h2 id="使用流程"><a class="markdownIt-Anchor" href="#使用流程"></a> 使用流程</h2><p>如图所示为条件变量的一般使用情景。</p><div class="tag-plugin image"><div class="image-bg"><img src="/assets/027/27-1.png" alt="条件变量应用情景" data-fancybox="true"/></div><div class="image-meta"><span class="image-caption center">条件变量应用情景</span></div></div><p>在此场景下，待唤醒线程一般处于等待状态，等待满足某些特定条件后被其它线程唤醒；唤醒线程则处理其它功能，并在条件满足的情况下唤醒待唤醒线程。<code>conditional_variable</code>完成了上述通知的功能；<code>shared_data</code>则是不同线程之间的共享缓存区，用于数据共享；<code>mutex</code>则是锁，用于保护<code>conditional_variable</code>和<code>shared_data</code>之间的数据同步。</p><h2 id="代码接口"><a class="markdownIt-Anchor" href="#代码接口"></a> 代码接口</h2><p>条件变量位于标准库<code>&lt;conditional_variable&gt;</code>中，首先需要包含该头文件。头文件中提供了一系列接口，主要分为两个功能：<strong>等待</strong>和<strong>通知</strong>。</p><table><thead><tr><th style="text-align:center"><strong>函数名称</strong></th><th style="text-align:center"><strong>函数功能</strong></th></tr></thead><tbody><tr><td style="text-align:center">wait</td><td style="text-align:center">阻塞该线程并等待唤醒</td></tr><tr><td style="text-align:center">wait_for</td><td style="text-align:center">阻塞该线程并等待，或者超时</td></tr><tr><td style="text-align:center">wait_until</td><td style="text-align:center">阻塞该线程并等待，或者到达某一时间点</td></tr><tr><td style="text-align:center">notify_one</td><td style="text-align:center">唤醒一个线程</td></tr><tr><td style="text-align:center">notify_all</td><td style="text-align:center">唤醒所有线程</td></tr></tbody></table><h3 id="等待函数wait"><a class="markdownIt-Anchor" href="#等待函数wait"></a> 等待函数<code>wait()</code></h3><p>函数<code>wait</code>的其中一个函数签名如：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">wait</span>(unique_lock&lt;mutex&gt;&amp; __lock);</span><br></pre></td></tr></table></figure><p>其中，<code>__lock</code>是需要获取的锁。在调用<code>wait()</code>前，当前线程必须已经竞争获得锁，而后进入<code>wait()</code>。<code>wait()</code>函数中，会主动释放当前线程获得的锁，并进入阻塞状态；当其它线程获得锁并调用<code>notify_one()</code>或<code>notify_any()</code>进行线程唤醒时，当前线程则会退出阻塞状态，并重新试图获取锁。</p><h3 id="丢失唤醒和虚假唤醒"><a class="markdownIt-Anchor" href="#丢失唤醒和虚假唤醒"></a> 丢失唤醒和虚假唤醒</h3><p>上述的<code>wait()</code>函数在实际使用中，可能会遇到<strong>丢失唤醒</strong>或者<strong>虚假唤醒</strong>的情况。所谓丢失唤醒，则是在其它线程发出<code>notify</code>时，该线程尚且没有进入等待的阻塞状态，当该线程进入阻塞状态时，已经错过了通知唤醒，进而导致死锁；所谓虚假唤醒，则是由于底层硬件和软件在处理大规模操作时产生的短暂性系统混乱，导致在未收到唤醒通知的情况下提前被唤醒。虚假唤醒的成因是多种多样的，但究其本质都离不开短时间内的内核调度或信号中断等现象，读者可以自行了解。</p><p>为了防止上述情况的产生，<code>wait()</code>函数还有一个重载版本，其函数签名如下：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> _Predicate&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">wait</span><span class="params">(unique_lock&lt;mutex&gt;&amp; __lock, _Predicate __p)</span></span>;</span><br></pre></td></tr></table></figure><p>其中，<code>__p</code>是一个可调用对象，可以是仿函数，也可以是lambda表达式。其相当于一个阻塞条件，当不满足该条件时，当前线程才会被阻塞；反之，则会退出阻塞状态。上述<code>wait()</code>相当于如下的代码段：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(!__p())&#123;</span><br><span class="line">    <span class="built_in">wait</span>(__lock);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>因此，如果存在丢失唤醒的情况，则<code>while</code>的判断首先不成立，线程也不会进入阻塞状态；如果存在虚假唤醒的情况，则满足<code>while</code>的循环条件，也就会再次进入阻塞状态。</p><h3 id="唤醒函数"><a class="markdownIt-Anchor" href="#唤醒函数"></a> 唤醒函数</h3><p><code>conditional_variable</code>中提供了两种唤醒函数，分别为<code>notify_one()</code>和<code>notify_all()</code>。两者的唯一区别在于前者是唤醒被当前条件变量阻塞的线程中的一个线程，而后者则是唤醒所有线程。若有多个线程被同一个条件变量阻塞，则<code>notify_one()</code>的唤醒是随机的，也即无法选择具体的唤醒线程。<code>notify</code>内部相当于获取了锁，而后唤醒对应线程，再释放锁。</p><h2 id="条件变量的例子"><a class="markdownIt-Anchor" href="#条件变量的例子"></a> 条件变量的例子</h2><p>条件变量通常可用于单一或多个生产者，多个消费者的场景。在这种场景下，如果生产者尚未产生足够的数据，则消费者可以进入阻塞状态，降低系统性能消耗；当生产者产生可供消费者消费的数据后，则可以使用条件变量唤醒消费者进行消费。线程池就是一个很好的例子。笔者曾实现过一个线程池，但该线程池没有阻塞功能，导致仅减少了新线程创建时的资源开销。</p><p>后续的文章会基于条件变量实现一个基于阻塞队列的线程池。</p>]]></content>
+    
+    
+    <summary type="html">C++的条件变量提供了一种线程同步的方法，本文简要对其进行介绍。</summary>
+    
+    
+    
+    <category term="程序设计" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="语言" scheme="https://blog.snowflake.zone/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="C++" scheme="https://blog.snowflake.zone/tags/C/"/>
+    
+    <category term="条件变量" scheme="https://blog.snowflake.zone/tags/%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>并查集的C++实现</title>
