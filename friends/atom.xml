@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Felix Chen</title>
+  <title>Lumine</title>
   
   
   <link href="https://blog.snowflake.zone/friends/atom.xml" rel="self"/>
@@ -14,7 +14,7 @@
   </follow_challenge>
   
   <author>
-    <name>Felix Chen</name>
+    <name>Lumine</name>
     
   </author>
   
