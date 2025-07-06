@@ -1854,7 +1854,7 @@ table:not([class]) {
   outline: none;
 }
 html {
-  font-family: "Noto Serif SC", system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif;
+  font-family: "LXGW WenKai", "Noto Serif SC", system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -7033,7 +7033,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 .search-wrapper .search-input {
   width: 100%;
   box-sizing: border-box;
-  font-family: "Noto Serif SC", system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif;
+  font-family: "LXGW WenKai", "Noto Serif SC", system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif;
   font-size: 0.875rem;
   padding: 12px 0;
   color: var(--text);
