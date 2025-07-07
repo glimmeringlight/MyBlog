@@ -170,9 +170,9 @@
     
     <category term="算法" scheme="https://blog.snowflake.zone/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="滑动窗口" scheme="https://blog.snowflake.zone/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"/>
-    
     <category term="leetcode" scheme="https://blog.snowflake.zone/tags/leetcode/"/>
+    
+    <category term="滑动窗口" scheme="https://blog.snowflake.zone/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"/>
     
   </entry>
   
