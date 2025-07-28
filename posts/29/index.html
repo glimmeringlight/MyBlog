@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.0" theme-name="Stellar" theme-version="1.33.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
   <link rel="canonical" href="https://blog.snowflake.zone/posts/29/">
   
   <meta name="generator" content="Hexo 7.3.0">
@@ -20,12 +20,12 @@
   <title>Beta分布：缘由及推导 - Lumine</title>
 
   
-    <meta name="description" content="什么是Beta分布？ Beta分布是一种 连续型概率密度分布 ，通常使用 Beta(α,β)Beta(\alpha,\beta)Beta(α,β) 表示，具有两个参数。Beta分布的定义域为 [0,1][0, 1][0,1] ，一般用于估计伯努利事件中成功的概率 θ\thetaθ ，即 Bern(N,θ)Bern(N, \theta)Bern(N,θ) 中的 θ\thetaθ。  Beta分布的">
+    <meta name="description" content="本文主要介绍了Beta分布的概念、相关性质及其推导。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Beta分布：缘由及推导">
 <meta property="og:url" content="https://blog.snowflake.zone/posts/29/">
 <meta property="og:site_name" content="Lumine">
-<meta property="og:description" content="什么是Beta分布？ Beta分布是一种 连续型概率密度分布 ，通常使用 Beta(α,β)Beta(\alpha,\beta)Beta(α,β) 表示，具有两个参数。Beta分布的定义域为 [0,1][0, 1][0,1] ，一般用于估计伯努利事件中成功的概率 θ\thetaθ ，即 Bern(N,θ)Bern(N, \theta)Bern(N,θ) 中的 θ\thetaθ。  Beta分布的">
+<meta property="og:description" content="本文主要介绍了Beta分布的概念、相关性质及其推导。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.snowflake.zone/assets/profile.jpg">
 <meta property="article:published_time" content="2025-07-09T14:00:31.000Z">
@@ -45,7 +45,7 @@
     <link rel="alternate" href="/friends/atom.xml" title="Lumine" type="application/atom+xml">
   
 
-  <link rel="stylesheet" href="/css/main.css?v=1.33.0">
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
 
 
   
@@ -54,7 +54,7 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Lumine","sameAs":[],"image":"/assets/profile.jpg"},"dateCreated":"2025-07-09T22:00:31+08:00","dateModified":"2025-07-09T22:00:31+08:00","datePublished":"2025-07-09T22:00:31+08:00","description":"","headline":"Beta分布：缘由及推导","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.snowflake.zone/posts/29/"},"publisher":{"@type":"Organization","name":"Lumine","sameAs":[],"image":"/assets/profile.jpg","logo":{"@type":"ImageObject","url":"/assets/profile.jpg"}},"url":"https://blog.snowflake.zone/posts/29/","keywords":"概率统计, Beta分布","thumbnailUrl":null,"image":[]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Lumine","sameAs":[],"image":"/assets/profile.jpg"},"dateCreated":"2025-07-09T22:00:31+08:00","dateModified":"2025-07-09T22:00:31+08:00","datePublished":"2025-07-09T22:00:31+08:00","description":"本文主要介绍了Beta分布的概念、相关性质及其推导。","headline":"Beta分布：缘由及推导","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.snowflake.zone/posts/29/"},"publisher":{"@type":"Organization","name":"Lumine","sameAs":[],"image":"/assets/profile.jpg","logo":{"@type":"ImageObject","url":"/assets/profile.jpg"}},"url":"https://blog.snowflake.zone/posts/29/","keywords":"概率统计, Beta分布","thumbnailUrl":null,"image":[]}</script>
   
 </head>
 <body>
@@ -97,7 +97,9 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="什么是beta分布"><a class="markdownIt-Anchor" href="#什么是beta分布"></a> 什么是Beta分布？</h1>
+  </div><article class="md-text content"><p>本文主要介绍了Beta分布的概念、相关性质及其推导。</p>
+<span id="more"></span>
+<h1 id="什么是beta分布"><a class="markdownIt-Anchor" href="#什么是beta分布"></a> 什么是Beta分布？</h1>
 <p>Beta分布是一种 <strong>连续型概率密度分布</strong> ，通常使用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>e</mi><mi>t</mi><mi>a</mi><mo stretchy="false">(</mo><mi>α</mi><mo separator="true">,</mo><mi>β</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Beta(\alpha,\beta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span><span class="mclose">)</span></span></span></span> 表示，具有两个参数。Beta分布的定义域为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0, 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span> ，一般用于估计伯努利事件中成功的概率 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span> ，即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>e</mi><mi>r</mi><mi>n</mi><mo stretchy="false">(</mo><mi>N</mi><mo separator="true">,</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Bern(N, \theta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span> 中的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span>。</p>
 <h1 id="beta分布的相关推导"><a class="markdownIt-Anchor" href="#beta分布的相关推导"></a> Beta分布的相关推导</h1>
 <h2 id="beta分布的概率密度函数"><a class="markdownIt-Anchor" href="#beta分布的概率密度函数"></a> Beta分布的概率密度函数</h2>
@@ -163,8 +165,7 @@ E(X)&amp;=\int _0^1 xf(x;\alpha, \beta)\mathrm{d} x\\
       <div class="header"><span>分享文章</span></div>
       <div class="body">
         <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://blog.snowflake.zone/posts/29/" /></div>
-        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.snowflake.zone/posts/29/&title=Beta分布：缘由及推导 - Lumine&summary= 什么是Beta分布？
-Beta分布是一种 连续型概率密度分布 ，通常使用 Beta(α,β)Beta(\alpha,\beta)Beta(α,β) 表示，具有两个参数。Beta分布的定义域为 [0,1][0, 1][0,1] ，一般..."><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=Beta分布：缘由及推导 - Lumine&amp;body=https://blog.snowflake.zone/posts/29/"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.snowflake.zone/posts/29/&title=Beta分布：缘由及推导 - Lumine&summary=本文主要介绍了Beta分布的概念、相关性质及其推导。"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=Beta分布：缘由及推导 - Lumine&amp;body=https://blog.snowflake.zone/posts/29/"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
         
         <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
           <img src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://blog.snowflake.zone/posts/29/"/>
@@ -198,7 +199,7 @@ Beta分布是一种 连续型概率密度分布 ，通常使用 Beta(α,β)Beta(
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:2;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">与我联系</span><a target="_blank" rel="noopener" href="https://github.com/glimmeringlight/">Github</a><a href="mailto:felixchen707@gmail.com">Email</a></div></div><div class="text"><p>本站由 <a href="/">Lumine</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.0">Stellar 1.33.0</a> 主题创建。<br />
+<footer class="page-footer footnote"><hr><div class="sitemap" style="column-count:2;"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期发布</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">与我联系</span><a target="_blank" rel="noopener" href="https://github.com/glimmeringlight/">Github</a><a href="mailto:felixchen707@gmail.com">Email</a></div></div><div class="text"><p>本站由 <a href="/">Lumine</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。<br />
 本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
@@ -629,7 +630,7 @@ Beta分布是一种 连续型概率密度分布 ，通常使用 Beta(α,β)Beta(
 </script>
 
 <!-- required -->
-<script src="/js/main.js?v=1.33.0" defer></script>
+<script src="/js/main.js?v=1.33.1" defer></script>
 
 <script type="text/javascript">
   const applyTheme = (theme) => {
