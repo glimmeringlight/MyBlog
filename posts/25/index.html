@@ -181,7 +181,7 @@
       <div class='title cap theme'>猜你喜欢</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="/posts/26/" title="并查集的C++实现"><span class="title">并查集的C++实现</span></a><a class="item" href="/posts/27/" title="C++条件变量(Conditional Variable)"><span class="title">C++条件变量(Conditional Variable)</span><span class="excerpt">C++的条件变量提供了一种线程同步的方法，本文简要对其进行介绍。</span></a><a class="item" href="/posts/2/" title="KMP算法"><span class="title">KMP算法</span><span class="excerpt">字符串的基本操作之一是find()函数，即从某一个字符串中找到对应的子串位置。KMP算法是目前为止最为广泛使用的寻找子字符串的算法。</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="/posts/26/" title="并查集的C++实现"><span class="title">并查集的C++实现</span></a><a class="item" href="/posts/27/" title="C++条件变量(Conditional Variable)"><span class="title">C++条件变量(Conditional Variable)</span><span class="excerpt">C++的条件变量提供了一种线程同步的方法，本文简要对其进行介绍。</span></a><a class="item" href="/posts/4/" title="数据结构试题分析"><span class="title">数据结构试题分析</span><span class="excerpt">本文选择了数据结构的一些考题，给出了完整的代码实现。</span></a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
@@ -189,10 +189,13 @@
       <p>快来参与讨论吧~</p>
 
     </section>
-    <section class='body cmt-body twikoo'>
+    <section class='body cmt-body giscus'>
       
 
-<div id="twikoo_container"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="glimmeringlight/MyBlog" data-repo-id="R_kgDOIOSW_w" data-category="Announcements" data-category-id="DIC_kwDOIOSW_84Cw-jt" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous"></div>
+
     </section>
   </div>
 
@@ -703,20 +706,28 @@
 <!-- optional -->
 
   <script type="module">
-  const el = document.getElementById('twikoo_container');
-  util.viewportLazyload(el, load_twikoo, false);
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, false);
 
-  function load_twikoo() {
+  function load_discus() {
     if (!el) return;
-    utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js', {defer: true}).then(function () {
-      const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
-      twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js","envId":"https://twikoo.snowflake.zone/"}, {
-        el: '#twikoo_container',
-        path: path,
-      }));
-    });
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
   }
 </script>
+
 
 
 

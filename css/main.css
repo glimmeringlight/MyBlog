@@ -7228,7 +7228,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   background-size: cover;
   --inset: 32px;
   --background-opacity: 0.4;
-  background-image: url("/assets/leftbar_bg.jpg");
+  background-image: url("/assets/leftbar_bg2.jpg");
   filter: saturate(var(--saturate)) blur(var(--blur-px)) opacity(var(--background-opacity));
 }
 @media screen and (prefers-color-scheme: dark) {
